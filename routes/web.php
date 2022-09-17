@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/dashboard');
+    return redirect('/account/dashboard');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/account/dashboard', function () {
     return view('pages.dashboard');
-});
+})->name('account.dashboard');
+
+Route::get('/account/factura', function () {
+    return view('pages.factura');
+})->name('account.factura');

@@ -11,6 +11,12 @@ module.exports = {
         'body': ['Inter', 'sans-serif'],
       },
     },
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1240px',
+    },
   },
   plugins: [],
 }

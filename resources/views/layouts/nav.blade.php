@@ -1,7 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
-
 <nav class="bg-sky-800 border-gray-200 px-2 sm:px-4 py-2">
     <div class="container flex flex-wrap justify-between items-center mx-auto">
         <a href="/" class="flex items-center">
@@ -77,7 +73,7 @@
     <div class="font-body grid py-5 px-4 mx-auto max-w-screen-md text-gray-800 dark:text-white sm:grid-cols-2 md:px-6">
         <ul>
             <li>
-                <a href="#" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <a href="{{route('account.factura')}}" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <div class="font-semibold">Factura</div>
                     <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Facturi in 5 minute.</span>
                 </a>
@@ -117,5 +113,3 @@
         </ul>
     </div>
 </div>
-
-@endsection

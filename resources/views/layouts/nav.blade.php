@@ -150,7 +150,7 @@
     <div class="font-body grid py-5 mx-auto container text-gray-800 dark:text-white sm:grid-cols-2">
         <ul>
             <li>
-                <a href="{{route('account.factura')}}" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <a href="{{route('account.date-cont')}}" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <div class="font-semibold">Date Cont</div>
                     <span class="text-sm font-light text-gray-500 dark:text-gray-400">Schimba datele contului de
                         utilizator.</span>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FacturaController;
+use App\Http\Controllers\DateContController;
 use App\Http\Controllers\DateFirmaController;
 
 /*
@@ -26,5 +27,8 @@ Route::get('/account/factura', [FacturaController::class, 'index'])->name('accou
 
 Route::get('/account/date-firma', [DateFirmaController::class, 'index'])->name('account.date-firma');
 Route::get('/account/getdetails', [DateFirmaController::class, 'getCompanyDetails'])->name('account.getdetails');
+
+Route::get('/account/date-cont', [DateContController::class, 'index'])->name('account.date-cont');
+Route::put('/account/date-cont/{id}', [DateContController::class, 'update'])->name('date-cont.update');
 
 Auth::routes();

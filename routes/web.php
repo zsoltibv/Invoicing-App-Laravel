@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FacturaController;
+use App\Http\Controllers\DateFirmaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,15 +14,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return redirect('/account/dashboard');
-});
+    return view('home');
+})->name('home');
 
 Route::get('/account/dashboard', function () {
     return view('pages.dashboard');
 })->name('account.dashboard');
 
-Route::get('/account/factura', function () {
-    return view('pages.factura');
-})->name('account.factura');
+Route::get('/account/factura', [FacturaController::class, 'index'])->name('account.factura');
+
+Route::get('/account/date-firma', [DateFirmaController::class, 'index'])->name('account.date-firma');
+Route::get('/account/getdetails', [DateFirmaController::class, 'getCompanyDetails'])->name('account.getdetails');
+
+Auth::routes();

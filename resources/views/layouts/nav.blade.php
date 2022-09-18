@@ -1,4 +1,4 @@
-<nav class="bg-sky-800 border-gray-200 px-2 sm:px-4 py-2">
+<nav class="bg-sky-800 border-gray-200 px-2 sm:px-4 py-4">
     <div class="container flex flex-wrap justify-between items-center mx-auto">
         <a href="/" class="flex items-center">
             <img src="{{asset('img/logo-white.png')}}" class="mr-3 h-8" alt="logo">
@@ -12,8 +12,8 @@
                 <img class="sm:w-8 sm:h-8 w-6 h-6 rounded-full" src="{{asset('img/user.png')}}" alt="user photo">
             </button>
             <!-- Dropdown menu -->
-            <div class="font-body hidden z-50 my-4 text-base list-none bg-gray-800 divide-y border-b"
-                id="user-dropdown" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
+            <div class="font-body hidden z-50 my-4 text-base list-none bg-gray-800 divide-y border-b" id="user-dropdown"
+                data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
                 style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 210px);">
                 <div class="py-3 px-4">
                     <span class="block text-sm text-gray-900 dark:text-white">Hosszu Zsolt</span>
@@ -34,8 +34,16 @@
                             class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Facturi</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Iesire din cont</a>
+                        <a class="" href="{{ route('logout') }}">
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"
+                                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                Iesire din cont
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -51,17 +59,32 @@
                 </svg>
             </button>
         </div>
-        <div class="mega-menu-full hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
+        <div class="mega-menu-full hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
+            id="mobile-menu-2">
             <ul
                 class="font-body flex flex-col md:items-center text-white text-sm md:text-md mt-4 rounded-lg md:flex-row md:space-x-10 md:mt-0 md:font-medium md:border-0">
                 <li>
-                    <button id="mega-menu-full-dropdown-button" data-collapse-toggle="mega-menu-full-dropdown" class="px-3 flex justify-between items-center py-2 w-full font-medium text-white rounded md:w-auto hover:bg-gray-100 md:hover:bg-gray-500 md:border-0 md:hover:text-blue-500 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Emitere <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
+                    <button id="mega-menu-full-dropdown-button" data-collapse-toggle="mega-menu-full-dropdown"
+                        class="px-3 flex justify-between items-center py-2 w-full font-medium text-white rounded md:w-auto hover:bg-gray-100 md:hover:bg-gray-500 md:border-0 md:hover:text-blue-500 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Emitere
+                        <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg></button>
                 </li>
                 <li>
                     <a href="#" class="block py-2 px-3">Rapoarte</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3">Setari</a>
+                    <button id="mega-menu-full-dropdown-button-2" data-collapse-toggle="mega-menu-full-dropdown-2"
+                        class="px-3 flex justify-between items-center py-2 w-full font-medium text-white rounded md:w-auto hover:bg-gray-100 md:hover:bg-gray-500 md:border-0 md:hover:text-blue-500 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Setari
+                        <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg></button>
                 </li>
             </ul>
         </div>
@@ -69,25 +92,29 @@
 </nav>
 
 {{-- Dropdown Emitere --}}
-<div id="mega-menu-full-dropdown" class="hidden mt-1 bg-gray-800 border-gray-200 shadow-sm border-y dark:border-gray-600">
-    <div class="font-body grid py-5 px-4 mx-auto max-w-screen-md text-gray-800 dark:text-white sm:grid-cols-2 md:px-6">
+<div id="mega-menu-full-dropdown"
+    class="hidden mt-1 bg-gray-800 border-gray-200 shadow-sm border-y dark:border-gray-600">
+    <div class="font-body grid py-5 mx-auto container text-gray-800 dark:text-white sm:grid-cols-2">
         <ul>
             <li>
                 <a href="{{route('account.factura')}}" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <div class="font-semibold">Factura</div>
-                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Facturi in 5 minute.</span>
+                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Facturi simplu si
+                        rapid.</span>
                 </a>
             </li>
             <li>
                 <a href="#" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <div class="font-semibold">Factura Storno</div>
-                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Facturi Storno in 5 minute.</span>
+                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Facturi Storno simplu si
+                        rapid.</span>
                 </a>
             </li>
             <li>
                 <a href="#" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <div class="font-semibold">Proforma</div>
-                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Proforme in pasi simpli.</span>
+                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Proforme simplu si
+                        rapid.</span>
                 </a>
             </li>
         </ul>
@@ -95,19 +122,73 @@
             <li>
                 <a href="#" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <div class="font-semibold">Aviz</div>
-                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Avize cat ai zice "facturila".</span>
+                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Avize simplu si
+                        rapid.</span>
                 </a>
             </li>
             <li>
                 <a href="#" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <div class="font-semibold">Factura Recurenta</div>
-                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Facturi Recurente pentru clientii tai.</span>
+                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Facturi Recurente simplu si
+                        rapid.</span>
                 </a>
             </li>
             <li>
                 <a href="#" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <div class="font-semibold">Proforma Recurenta</div>
-                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Proforme Recurente simplu si rapid.</span>
+                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Proforme Recurente simplu si
+                        rapid.</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{{-- Dropdown Setari --}}
+<div id="mega-menu-full-dropdown-2"
+    class="hidden mt-1 bg-gray-800 border-gray-200 shadow-sm border-y dark:border-gray-600">
+    <div class="font-body grid py-5 mx-auto container text-gray-800 dark:text-white sm:grid-cols-2">
+        <ul>
+            <li>
+                <a href="{{route('account.factura')}}" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div class="font-semibold">Date Cont</div>
+                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Schimba datele contului de
+                        utilizator.</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('account.date-firma')}}" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div class="font-semibold">Date Firma</div>
+                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Schimba datele firmei
+                        facturante.</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div class="font-semibold">Conturi Bancare</div>
+                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Schimba contul bancar asociat
+                        firmei.</span>
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div class="font-semibold">TVA</div>
+                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Schimba valoare TVA-ului.</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div class="font-semibold">Serii Documente</div>
+                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Seteaza numarul facturilor.</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div class="font-semibold">Model Factura</div>
+                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Modifica factura dupa placul
+                        tau.</span>
                 </a>
             </li>
         </ul>

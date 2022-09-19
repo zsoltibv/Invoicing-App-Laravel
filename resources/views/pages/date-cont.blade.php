@@ -7,7 +7,7 @@
 <div class="bg-container bg-gray-30 h-full">
     <div class="mx-auto container py-3 my-6 font-body md:px-0 px-3">
         <h3 class="text-xl font-bold py-4 text-gray-800 border-b-2">Date Cont</h3>
-        <form action="{{route('date-cont.update', ['id' => $user->id])}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('date-cont.update', ['id' => $user->id])}}" method="POST" enctype="multipart/form-data" class="mt-3">
             @csrf
             {{method_field('PUT')}}
             <div
@@ -72,7 +72,7 @@
             </button>
         </form>
         @if(Session::has('message'))
-        <div class="text-black text-md mt-3">{{Session::get('message')}}</div>
+            <div class="text-black text-md mt-3">{{Session::get('message')}}</div>
         @endif
     </div>
 </div>

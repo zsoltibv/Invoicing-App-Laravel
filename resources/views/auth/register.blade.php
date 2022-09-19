@@ -67,11 +67,9 @@
                         </div>
 
                         <div class="row mb-0 py-3">
-                            <div class="h-9 py-3 text-md bg-sky-700 flex items-center justify-center">
-                                <button type="submit" class="btn btn-primary text-white">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
+                            <button type="submit" class="btn btn-primary text-white h-9 py-3 text-md bg-sky-700 flex items-center justify-center w-full">
+                                {{ __('Register') }}
+                            </button>
                         </div>
                     </form>
                 </div>

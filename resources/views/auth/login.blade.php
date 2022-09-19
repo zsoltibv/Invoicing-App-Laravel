@@ -56,11 +56,9 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="h-9 py-3 text-md bg-sky-700 flex items-center justify-center">
-                                <button type="submit" class="btn btn-primary text-white">
-                                    {{ __('Login') }}
-                                </button>
-                            </div>
+                            <button type="submit" class="btn btn-primary text-white h-9 py-3 text-md bg-sky-700 flex items-center justify-center w-full">
+                                        {{ __('Login') }}
+                            </button>
                             
                             <div class="pass-forget py-3">
                                 @if (Route::has('password.request'))

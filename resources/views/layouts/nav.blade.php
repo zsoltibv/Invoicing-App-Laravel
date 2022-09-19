@@ -150,24 +150,35 @@
     <div class="font-body grid py-5 mx-auto container text-gray-800 dark:text-white sm:grid-cols-2">
         <ul>
             <li>
-                <a href="{{route('account.date-cont')}}" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <a href="{{route('account.date-cont')}}" class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="mr-3 fill-white"><path d="M8 14h11v2H8Zm0 5h13v2H8Z"/><path d="M28 4H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2v2H4V6ZM4 26V10h24v16Z"/><path fill="none" data-name="&lt;Transparent Rectangle&gt;" d="M0 0h32v32H0z"/></svg>
+                    <div class="content">
                     <div class="font-semibold">Date Cont</div>
                     <span class="text-sm font-light text-gray-500 dark:text-gray-400">Schimba datele contului de
                         utilizator.</span>
+                    </div>
                 </a>
             </li>
             <li>
-                <a href="{{route('account.date-firma')}}" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <div class="font-semibold">Date Firma</div>
-                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Schimba datele firmei
-                        facturante.</span>
+                <a href="{{route('account.date-firma')}}" class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" class="fill-white mr-3">
+                        <path d="M6.5 10h-2v7h2v-7zm6 0h-2v7h2v-7zm8.5 9H2v2h19v-2zm-2.5-9h-2v7h2v-7zm-7-6.74L16.71 6H6.29l5.21-2.74m0-2.26L2 6v2h19V6l-9.5-5z"/>
+                    </svg>
+                    <div class="content">
+                        <div class="font-semibold">Date Firma</div>
+                        <span class="text-sm font-light text-gray-500 dark:text-gray-400">Schimba datele firmei
+                            facturante.</span>
+                    </div>
                 </a>
             </li>
             <li>
-                <a href="#" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <div class="font-semibold">Conturi Bancare</div>
-                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Schimba contul bancar asociat
-                        firmei.</span>
+                <a href="#" class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" class="fill-white mr-3"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 8H4v8h16v-8zm0-2V5H4v4h16zm-6 6h4v2h-4v-2z"/></svg>
+                    <div class="content">
+                        <div class="font-semibold">Conturi Bancare</div>
+                        <span class="text-sm font-light text-gray-500 dark:text-gray-400">Schimba contul bancar asociat
+                            firmei.</span>
+                    </div>
                 </a>
             </li>
         </ul>

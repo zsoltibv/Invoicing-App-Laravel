@@ -13,8 +13,6 @@ class DateBancareController extends Controller
     {
         $user = Auth::user();
 
-        // $cont_bancar = $user->contBancar;
-
         return view('pages.date-bancare', compact('user'));
     }
 
@@ -26,6 +24,12 @@ class DateBancareController extends Controller
         (new ContBancar)->storeContBancar($data);
 
         return redirect()->route('account.date-bancare')->with('message', 'Account added successfully');
+    }
+
+    public function destroy($id){
+        (new ContBancar)->deleteContBancar($id);
+
+        return redirect()->route('account.date-bancare')->with('message', 'Account deleted successfully');
     }
 
     public function validateForm($request)

@@ -27,6 +27,10 @@ class ContBancar extends Model
         return ContBancar::find($id);
     }
 
+    public function deleteContBancar($id){
+        return ContBancar::find($id)->delete();
+    }
+
     public function storeContBancar($data){
         ContBancar::create([
             'user_id' => $data['user_id'],

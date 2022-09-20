@@ -108,10 +108,20 @@
                                 {{$cont->moneda}}
                             </td>
                             <td class="py-4 px-6">
-                                <input id="default-checkbox" type="checkbox" value="" class="w-3.5 h-3.5 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <div class="flex items-center">
+                                    @if($cont->folosit == true)
+                                        <input checked id="checked-checkbox" type="checkbox" value="" class="w-3.5 h-3.5 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    @else
+                                        <input id="default-checkbox" type="checkbox" value="" class="w-3.5 h-3.5 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">    
+                                    @endif    
+                                </div>
                             </td>
                             <td class="py-4 px-6">
-                                <a href="#" class="font-medium text-red-500 hover:underline">Sterge</a>
+                                <form action="{{route('date-bancare.destroy', $cont->id)}}" method="POST" style="display: inline;">
+                                    @csrf 
+                                    {{method_field('DELETE')}}
+                                    <button class="font-medium text-red-500 hover:underline">Sterge</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach 

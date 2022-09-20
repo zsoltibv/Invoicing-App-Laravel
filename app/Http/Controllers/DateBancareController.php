@@ -13,9 +13,9 @@ class DateBancareController extends Controller
     {
         $user = Auth::user();
 
-        $cont_bancar = $user->contBancar;
+        // $cont_bancar = $user->contBancar;
 
-        return view('pages.date-bancare', compact('user', 'cont_bancar'));
+        return view('pages.date-bancare', compact('user'));
     }
 
     public function store(Request $request, $id){

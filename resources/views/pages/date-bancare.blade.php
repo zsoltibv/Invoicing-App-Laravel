@@ -92,7 +92,7 @@
                 </thead>
                 <tbody>
 
-                    @foreach($cont_bancar as $key=>$cont)
+                    @foreach($user->contBancar as $key=>$cont)
 
                         <tr class="bg-gray-300 border-b">
                             <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap">

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\DateContController;
 use App\Http\Controllers\DateFirmaController;
@@ -20,9 +21,7 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/account', function () {
-    return view('pages.dashboard');
-})->name('account');
+Route::get('/account', [HomeController::class, 'index'])->name('account');
 
 Route::get('/account/factura', [FacturaController::class, 'index'])->name('account.factura');
 
@@ -33,5 +32,6 @@ Route::get('/account/date-cont', [DateContController::class, 'index'])->name('ac
 Route::put('/account/date-cont/{id}', [DateContController::class, 'update'])->name('date-cont.update');
 
 Route::get('/account/date-bancare', [DateBancareController::class, 'index'])->name('account.date-bancare');
+Route::post('/account/date-bancare/{id}', [DateBancareController::class, 'store'])->name('date-bancare.store');
 
 Auth::routes();

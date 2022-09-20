@@ -43,6 +43,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function contBancar(){
+        return $this->hasMany(ContBancar::class, 'user_id');
+    }
+
     public function getUserById($id)
     {
         return User::find($id);

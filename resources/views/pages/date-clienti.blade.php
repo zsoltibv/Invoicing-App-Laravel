@@ -7,7 +7,7 @@
 <div class="bg-container bg-gray-30 h-full">
     <div class="mx-auto container py-3 my-6 font-body md:px-0 px-3">
         <h3 class="text-xl font-bold py-4 text-gray-800 border-b-2">Date Clienti</h3>
-        <form action="" method="POST" enctype="multipart/form-data" class="mt-6">
+        <form action="{{route('date-clienti.getdetails', $user->id)}}" method="POST" enctype="multipart/form-data" class="mt-6">
             @csrf
             <label for="cod_fiscal" class="col-md-4 col-form-label">{{ __('Cod Fiscal*') }}</label>
             <div
@@ -52,55 +52,46 @@
                             Nr Crt
                         </th>
                         <th scope="col" class="py-3 px-6">
-                            Iban
+                            Client
                         </th>
                         <th scope="col" class="py-3 px-6">
-                            Banca
+                            Cod Fiscal
                         </th>
-                        <th scope="col" class="py-3 px-6">
-                            Moneda
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            Folosit
-                        </th>
+                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach($user->contBancar as $key=>$cont)
+                    @foreach($user->dateClient as $key=>$date)
 
                         <tr class="bg-gray-300 border-b">
                             <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap">
                                 {{$key+1}}
                             </th>
                             <td class="py-4 px-6">
-                                {{$cont->iban}}
+                                {{$date->denumire}}
                             </td>
                             <td class="py-4 px-6">
-                                {{$cont->banca}}
+                                {{$date->cui}}
                             </td>
                             <td class="py-4 px-6">
-                                {{$cont->moneda}}
-                            </td>
-                            <td class="py-4 px-6">
-                                <div class="flex items-center">
-                                    @if($cont->folosit == true)
-                                        <input checked id="checked-checkbox" type="checkbox" value="" class="w-3.5 h-3.5 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    @else
-                                        <input id="default-checkbox" type="checkbox" value="" class="w-3.5 h-3.5 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">    
-                                    @endif    
-                                </div>
-                            </td>
-                            <td class="py-4 px-6">
-                                <form action="{{route('date-bancare.destroy', $cont->id)}}" method="POST" style="display: inline;">
+                                <form action="{{route('date-clienti.destroy', $date->id)}}" method="POST" style="display: inline;">
                                     @csrf 
                                     {{method_field('DELETE')}}
                                     <button class="font-medium text-red-500 hover:underline flex">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" class="fill-red-500"><path d="M12 12h2v12h-2zm6 0h2v12h-2z"/><path d="M4 6v2h2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h2V6zm4 22V8h16v20zm4-26h8v2h-8z"/><path fill="none" d="M0 0h32v32H0z" data-name="&lt;Transparent Rectangle&gt;"/></svg>
-                                        <p class="ml-1">Sterge Cont</p>
+                                        <p class="ml-1">Sterge Client</p>
                                     </button>
                                 </form>
+                            </td>
+                            <td class="py-4 px-6">
+                                <a href="{{route('date-clienti.edit', $date->id)}}">
+                                    <button class="font-medium text-green-700 hover:underline flex">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" class="fill-green-700"><path d="M2 26h28v2H2zM25.4 9c.8-.8.8-2 0-2.8l-3.6-3.6c-.8-.8-2-.8-2.8 0l-15 15V24h6.4l15-15zm-5-5L24 7.6l-3 3L17.4 7l3-3zM6 22v-3.6l10-10 3.6 3.6-10 10H6z"/><path fill="none" d="M0 0h32v32H0z"/></svg>
+                                        <p class="ml-1">Vizualizeaza/Modifica</p>
+                                    </button>
+                                </a>
                             </td>
                         </tr>
                     @endforeach 

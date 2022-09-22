@@ -51,6 +51,10 @@ class User extends Authenticatable
         return $this->hasOne(DateFirma::class, 'user_id');
     }
 
+    public function dateClient(){
+        return $this->hasMany(DateClient::class, 'user_id');
+    }
+
     public function getUserById($id)
     {
         return User::find($id);

@@ -40,5 +40,9 @@ Route::post('/account/date-bancare/{id}', [DateBancareController::class, 'store'
 Route::delete('/account/date-bancare/{id}', [DateBancareController::class, 'destroy'])->name('date-bancare.destroy');
 
 Route::get('/account/date-clienti', [DateClientiController::class, 'index'])->name('account.date-clienti');
+Route::get('/account/date-clienti/{id}', [DateClientiController::class, 'edit'])->name('date-clienti.edit');
+Route::post('/account/date-clienti/{id}', [DateClientiController::class, 'getCompanyDetails'])->name('date-clienti.getdetails');
+Route::put('/account/date-clienti/{id}', [DateClientiController::class, 'update'])->name('date-clienti.update');
+Route::delete('/account/date-clienti/{id}', [DateClientiController::class, 'destroy'])->name('date-clienti.destroy');
 
 Auth::routes();

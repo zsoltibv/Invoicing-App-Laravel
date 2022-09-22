@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Auth;
+use Andali\Anaf\Rules\ValidVatNumber;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
-use Andali\Anaf\Rules\ValidVatNumber;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DateClient extends Model
 {
@@ -42,6 +43,21 @@ class DateClient extends Model
             'reg_com' => $data['nrRegCom'],
             'tva' => $data['scpTVA'],
         ]);
+    }
+
+    public function updateDateClient($data, $id){
+        $user = Auth::user();
+        $dateClient = DateClient::find($id);
+
+        $dateClient->denumire = $data['nume_firma'];
+        $dateClient->adresa = $data['adresa'];
+        $dateClient->cui = $data['cod_fiscal'];
+        $dateClient->reg_com = $data['reg_comertului'];
+        $dateClient->judet = $data['judet'];
+        $dateClient->localitate = $data['localitate'];
+
+        $dateClient->save();
+        return $user;
     }
 
     public function deleteDateClient($id){

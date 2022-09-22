@@ -23,6 +23,29 @@ class DateClientiController extends Controller
         return view('pages.date-clienti-edit', compact('user', 'client_id'));
     }
 
+    public function update(Request $request, $id)
+    {
+        $user = Auth::user();
+
+        $data = $this->validateUpdate($request);
+
+        $dateFirma = (new DateClient)->updateDateClient($data, $id);
+
+        return redirect()->route('account.date-clienti', compact('user'))->with('message', 'Client updated successfully');
+    }
+
+    public function validateUpdate($request)
+    {
+        return $this->validate($request, [
+            'nume_firma' => 'required|string',
+            'adresa' => 'required|string',
+            'cod_fiscal' => 'required|integer',
+            'reg_comertului' => 'required|string',
+            'judet' => 'required|string',
+            'localitate' => 'required|string',
+        ]);
+    }
+
     public function destroy($id)
     {
         (new DateClient)->deleteDateClient($id);

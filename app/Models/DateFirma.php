@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DateFirma extends Model
 {
@@ -40,5 +42,20 @@ class DateFirma extends Model
             'reg_com' => $data['nrRegCom'],
             'tva' => $data['scpTVA'],
         ]);
+    }
+
+    public function updateDateFirma($data, $id){
+        $user = Auth::user();
+        $dateFirma = DateFirma::find($id);
+
+        $dateFirma->denumire = $data['nume_firma'];
+        $dateFirma->adresa = $data['adresa'];
+        $dateFirma->cui = $data['cod_fiscal'];
+        $dateFirma->reg_com = $data['reg_comertului'];
+        $dateFirma->judet = $data['judet'];
+        $dateFirma->localitate = $data['localitate'];
+
+        $dateFirma->save();
+        return $user;
     }
 }

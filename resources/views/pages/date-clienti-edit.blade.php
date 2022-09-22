@@ -97,13 +97,22 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary text-white">
-                <div class="pt-6 w-32">
-                    <div class="h-9 py-3 text-md bg-sky-700 flex items-center justify-center">
-                        {{ __('Modificare') }}
+            <div class="controls flex space-x-3">
+                <button type="submit" class="btn btn-primary text-white">
+                    <div class="pt-6 w-32">
+                        <div class="h-9 py-3 text-md bg-sky-700 flex items-center justify-center">
+                            {{ __('Modificare') }}
+                        </div>
                     </div>
-                </div>
-            </button>
+                </button>
+                <a href="{{route('account.date-clienti')}}">
+                    <div class="pt-6 w-32">
+                        <div class="h-9 py-3 text-md border-2 border-sky-700 text-sky-700 flex items-center justify-center">
+                            {{ __('Inapoi') }}
+                        </div>
+                    </div>
+                </a>
+            </div>
         </form>
         @if(Session::has('message'))
             <div class="text-black text-md mt-3">{{Session::get('message')}}</div>

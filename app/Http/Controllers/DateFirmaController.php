@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Andali\Anaf\Anaf;
+use App\Models\DateFirma;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Andali\Anaf\Rules\ValidVatNumber;
+use Illuminate\Support\Facades\Validator;
 
 class DateFirmaController extends Controller
 {
@@ -15,17 +18,32 @@ class DateFirmaController extends Controller
         return view('pages.date-firma', compact('user'));
     }
 
-    public function getCompanyDetails()
+    public function getCompanyDetails(Request $request)
     {
-        $companyInfo = Anaf::for(45185880)->info();
-        /* AND YOU CAN ACCESS */
-        $companyInfo->denumire;
-        $companyInfo->adresa->judet;
-        $companyInfo->adresa->localitate;
-        $companyInfo->adresa->strada;
-        $companyInfo->adresa->stradaNumar;
-        $companyInfo->nrRegCom;
-        $companyInfo->scpTVA;
-        dd($companyInfo);
+        $data = Anaf::for($request->cod_fiscal)->info()->toArray();
+
+        $data['user_id'] = Auth::user()->id;
+
+        if ($this->validateForm($data)) {
+            
+            (new DateFirma)->storeDateFirma($data);
+
+            return redirect()->route('account.date-firma')->with('message', 'Firm added successfully');
+        } else {
+            dd('fail');
+        }
+    }
+
+    public function destroy($id){
+        (new DateFirma)->deleteDateFirma($id);
+
+        return redirect()->route('account.date-firma')->with('message', 'Firm deleted successfully');
+    }
+
+    public function validateForm($data)
+    {
+        return Validator::make($data, [
+            'cui' => ['required', new ValidVatNumber],
+        ]);
     }
 }

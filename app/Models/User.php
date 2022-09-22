@@ -47,6 +47,10 @@ class User extends Authenticatable
         return $this->hasMany(ContBancar::class, 'user_id');
     }
 
+    public function dateFirma(){
+        return $this->hasOne(DateFirma::class, 'user_id');
+    }
+
     public function getUserById($id)
     {
         return User::find($id);

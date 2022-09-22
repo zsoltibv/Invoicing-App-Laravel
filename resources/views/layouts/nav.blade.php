@@ -150,19 +150,28 @@
     <div class="font-body grid py-5 mx-auto container text-gray-800 dark:text-white sm:grid-cols-2">
         <ul>
             <li>
-                <a href="{{route('account.date-cont')}}" class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="mr-3 fill-white"><path d="M8 14h11v2H8Zm0 5h13v2H8Z"/><path d="M28 4H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2v2H4V6ZM4 26V10h24v16Z"/><path fill="none" data-name="&lt;Transparent Rectangle&gt;" d="M0 0h32v32H0z"/></svg>
+                <a href="{{route('account.date-cont')}}"
+                    class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="mr-3 fill-white">
+                        <path d="M8 14h11v2H8Zm0 5h13v2H8Z" />
+                        <path
+                            d="M28 4H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2v2H4V6ZM4 26V10h24v16Z" />
+                        <path fill="none" data-name="&lt;Transparent Rectangle&gt;" d="M0 0h32v32H0z" />
+                    </svg>
                     <div class="content">
-                    <div class="font-semibold">Date Cont</div>
-                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Schimba datele contului de
-                        utilizator.</span>
+                        <div class="font-semibold">Date Cont</div>
+                        <span class="text-sm font-light text-gray-500 dark:text-gray-400">Schimba datele contului de
+                            utilizator.</span>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="{{route('account.date-firma')}}" class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" class="fill-white mr-3">
-                        <path d="M6.5 10h-2v7h2v-7zm6 0h-2v7h2v-7zm8.5 9H2v2h19v-2zm-2.5-9h-2v7h2v-7zm-7-6.74L16.71 6H6.29l5.21-2.74m0-2.26L2 6v2h19V6l-9.5-5z"/>
+                <a href="{{route('account.date-firma')}}"
+                    class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"
+                        class="fill-white mr-3">
+                        <path
+                            d="M6.5 10h-2v7h2v-7zm6 0h-2v7h2v-7zm8.5 9H2v2h19v-2zm-2.5-9h-2v7h2v-7zm-7-6.74L16.71 6H6.29l5.21-2.74m0-2.26L2 6v2h19V6l-9.5-5z" />
                     </svg>
                     <div class="content">
                         <div class="font-semibold">Date Firma</div>
@@ -172,8 +181,14 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('account.date-bancare')}}" class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" class="fill-white mr-3"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 8H4v8h16v-8zm0-2V5H4v4h16zm-6 6h4v2h-4v-2z"/></svg>
+                <a href="{{route('account.date-bancare')}}"
+                    class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"
+                        class="fill-white mr-3">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 8H4v8h16v-8zm0-2V5H4v4h16zm-6 6h4v2h-4v-2z" />
+                    </svg>
                     <div class="content">
                         <div class="font-semibold">Conturi Bancare</div>
                         <span class="text-sm font-light text-gray-500 dark:text-gray-400">Schimba contul bancar asociat
@@ -184,15 +199,21 @@
         </ul>
         <ul>
             <li>
-                <a href="#" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <div class="font-semibold">TVA</div>
-                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Schimba valoare TVA-ului.</span>
+                <a href="#" class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" class="fill-white mr-3"><path d="M16.67 13.13C18.04 14.06 19 15.32 19 17v3h4v-3c0-2.18-3.57-3.47-6.33-3.87zM15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4c-.47 0-.91.1-1.33.24a5.98 5.98 0 0 1 0 7.52c.42.14.86.24 1.33.24zm-6 0c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5H3v-.99C3.2 16.29 6.3 15 9 15s5.8 1.29 6 2v1z"/></svg>
+                    <div class="content">
+                        <div class="font-semibold">Clienti</div>
+                        <span class="text-sm font-light text-gray-500 dark:text-gray-400">Adauga clientii tai.</span>
+                    </div>
                 </a>
             </li>
             <li>
-                <a href="#" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <div class="font-semibold">Serii Documente</div>
-                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Seteaza numarul facturilor.</span>
+                <a href="#" class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" class="fill-white mr-3"><path fill="none" d="M0 0h24v24H0z"/><path d="m8.646 17.26 3.392 2.162 3.392-2.161 1.86 1.185-5.252 3.346-5.252-3.346 1.86-1.185zm-.877-8.28 2.393-1.553-2.425-1.574L5.28 7.37l2.49 1.61zm1.84 1.19L12 11.719l2.39-1.547L12 8.619l-2.391 1.552zm4.231 2.74 2.424 1.568 2.45-1.502-2.485-1.612-2.389 1.545zM12 6.234l4.237-2.748L22.46 7.33l-4.392 2.843 4.393 2.85-6.226 3.819L12 14.1l-4.235 2.74-6.23-3.817 4.396-2.851L1.539 7.33l6.224-3.843L12 6.235zm1.837 1.192L16.23 8.98l2.489-1.61-2.456-1.517-2.426 1.574zM10.16 12.91l-2.39-1.546-2.486 1.613 2.451 1.502 2.425-1.569z"/></svg>
+                    <div class="content">
+                        <div class="font-semibold">Produse</div>
+                        <span class="text-sm font-light text-gray-500 dark:text-gray-400">Adauga produsele tale.</span>
+                    </div>
                 </a>
             </li>
             <li>

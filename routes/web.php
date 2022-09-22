@@ -6,6 +6,7 @@ use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\DateContController;
 use App\Http\Controllers\DateFirmaController;
 use App\Http\Controllers\DateBancareController;
+use App\Http\Controllers\DateClientiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,5 +38,7 @@ Route::put('/account/date-cont/{id}', [DateContController::class, 'update'])->na
 Route::get('/account/date-bancare', [DateBancareController::class, 'index'])->name('account.date-bancare');
 Route::post('/account/date-bancare/{id}', [DateBancareController::class, 'store'])->name('date-bancare.store');
 Route::delete('/account/date-bancare/{id}', [DateBancareController::class, 'destroy'])->name('date-bancare.destroy');
+
+Route::get('/account/date-clienti', [DateClientiController::class, 'index'])->name('account.date-clienti');
 
 Auth::routes();

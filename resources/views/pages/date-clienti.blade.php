@@ -29,9 +29,7 @@
                         <div class="w-44">
                             <div class="h-9 py-3 text-md bg-sky-700 flex items-center justify-center">
                                 <p class="pr-1">{{ __('Adaugare Client') }}</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="fill-white">
-                                    <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z"/>
-                                </svg>
+                                <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24"><path d="M17 15V8h-2v7H8v2h7v7h2v-7h7v-2z"/><path fill="none" d="M0 0h32v32H0z"/></svg>
                             </div>
                         </div>
                     </button>

@@ -164,7 +164,7 @@
                                 {{$produs->moneda}}
                             </td>
                             <td class="py-4 px-6">
-                                {{$produs->cota_tva}}
+                                {{$produs->cota_tva}}%
                             </td>
                             <td class="py-4 px-6">
                                 <div class="flex items-center">

@@ -97,10 +97,13 @@
     <div class="font-body grid py-5 mx-auto container text-gray-800 dark:text-white sm:grid-cols-2">
         <ul>
             <li>
-                <a href="{{route('account.factura')}}" class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <div class="font-semibold">Factura</div>
-                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Facturi simplu si
-                        rapid.</span>
+                <a href="{{route('account.factura')}}" class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg class="fill-white mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M15 4H5v16h14V8h-4V4zM3 2.992C3 2.444 3.447 2 3.999 2H16l5 5v13.993A1 1 0 0 1 20.007 22H3.993A1 1 0 0 1 3 21.008V2.992zM11 11V8h2v3h3v2h-3v3h-2v-3H8v-2h3z"/></svg>
+                    <div class="content">
+                        <div class="font-semibold">Factura</div>
+                        <span class="text-sm font-light text-gray-500 dark:text-gray-400">Emite Facturi simplu si
+                            rapid.</span>
+                    </div>
                 </a>
             </li>
             <li>

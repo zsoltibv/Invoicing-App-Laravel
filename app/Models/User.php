@@ -55,6 +55,10 @@ class User extends Authenticatable
         return $this->hasMany(DateClient::class, 'user_id');
     }
 
+    public function dateProdus(){
+        return $this->hasMany(DateProdus::class, 'user_id');
+    }
+
     public function getUserById($id)
     {
         return User::find($id);

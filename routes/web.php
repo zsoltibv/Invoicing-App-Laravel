@@ -7,6 +7,7 @@ use App\Http\Controllers\DateContController;
 use App\Http\Controllers\DateFirmaController;
 use App\Http\Controllers\DateBancareController;
 use App\Http\Controllers\DateClientiController;
+use App\Http\Controllers\DateProduseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,5 +45,9 @@ Route::get('/account/date-clienti/{id}', [DateClientiController::class, 'edit'])
 Route::post('/account/date-clienti/{id}', [DateClientiController::class, 'getCompanyDetails'])->name('date-clienti.getdetails');
 Route::put('/account/date-clienti/{id}', [DateClientiController::class, 'update'])->name('date-clienti.update');
 Route::delete('/account/date-clienti/{id}', [DateClientiController::class, 'destroy'])->name('date-clienti.destroy');
+
+Route::get('/account/date-produse', [DateProduseController::class, 'index'])->name('account.date-produse');
+Route::post('/account/date-produse/{id}', [DateProduseController::class, 'store'])->name('date-produse.store');
+Route::delete('/account/date-produse/{id}', [DateProduseController::class, 'destroy'])->name('date-produse.destroy');
 
 Auth::routes();

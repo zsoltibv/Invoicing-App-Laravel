@@ -1,0 +1,198 @@
+@extends('layouts.app')
+
+@section('content')
+
+@include('layouts.nav')
+
+<div class="bg-container bg-gray-30 h-full">
+    <div class="mx-auto container py-3 my-6 font-body md:px-0 px-3">
+        <h3 class="text-xl font-bold py-4 text-gray-800 border-b-2">Date Produse</h3>
+        <form action="{{route('date-produse.store', ['id' => $user->id])}}" method="POST" enctype="multipart/form-data" class="mt-3">
+            @csrf
+            <div
+                class="control-wraper pt-3 grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 lg:gap-x-3 md:grid-cols-2 md:gap-x-3 text-sm">
+                <div class="controls">
+                    <label for="nume" class="col-md-4 col-form-label">{{ __('Nume Produs*') }}</label>
+                    <div class="py-3 flex flex-col">
+                        <input id="nume" type="text" class="h-9 p-2 text-sm bg-blue-100
+                                 @error('nume') is-invalid @enderror" name="nume" value="" required autofocus>
+
+                        @error('nume')
+                        <span class="invalid-feedback text-md" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="controls">
+                    <label for="um" class="col-md-4 col-form-label">{{ __('U.M.*') }}</label>
+                    <div class="py-3 flex flex-col">
+                        <input id="um" type="number" class="h-9 p-2 text-sm bg-blue-100
+                                 @error('um') is-invalid @enderror" name="um" value="" required
+                            autocomplete="um" autofocus>
+
+                        @error('um')
+                        <span class="invalid-feedback text-md" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="controls">
+                    <label for="pret" class="col-md-4 col-form-label">{{ __('Pret*') }}</label>
+                    <div class="py-3 flex flex-col">
+                        <input id="pret" type="number" class="h-9 p-2 text-sm bg-blue-100
+                                 @error('pret') is-invalid @enderror" name="pret" value="" required
+                            autocomplete="pret" autofocus>
+
+                        @error('pret')
+                        <span class="invalid-feedback text-md" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="controls">
+                    <div class="flex flex-col">
+                        <label for="moneda" class="col-md-4 col-form-label text-md-end">{{ __('Moneda')
+                            }}</label>
+
+                        <div class="options py-3">
+                            <select name="moneda" id="moneda" class="h-9 p-2 text-sm bg-blue-100 w-full">
+                                <option value="ron">RON</option>
+                                <option value="eur">EUR</option>
+                                <option value="usd">USD</option>
+                                <option value="huf">HUF</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <label for="cota_tva" class="col-md-4 col-form-label">{{ __('Cota TVA') }}</label>
+                    <div class="py-3 flex flex-col">
+                        <input id="cota_tva" type="number" class="h-9 p-2 text-sm bg-blue-100
+                                 @error('cota_tva') is-invalid @enderror" name="cota_tva" value="19" required
+                            autocomplete="cota_tva" autofocus>
+
+                        @error('cota_tva')
+                        <span class="invalid-feedback text-md" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="controls">
+                    <label for="pret" class="col-md-4 col-form-label">{{ __('Pretul include TVA') }}</label>
+                    <div class="py-3 flex items-center space-x-3">
+                        <div class="flex items-center">
+                            <input id="default-radio-1" type="radio" value="1" name="tva" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="default-radio-1" class="ml-2 text-sm font-medium text-gray-700">DA</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input checked id="default-radio-2" type="radio" value="0" name="tva" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="default-radio-2" class="ml-2 text-sm font-medium text-gray-700">NU</label>
+                        </div>
+
+                        @error('tva')
+                        <span class="invalid-feedback text-md" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary text-white">
+                <div class="pt-6 w-32">
+                    <div class="h-9 py-3 text-md bg-sky-700 flex items-center justify-center">
+                        {{ __('Add Product') }}
+                    </div>
+                </div>
+            </button>
+        </form>
+        @if(Session::has('message'))
+            <div class="text-black text-md mt-3">{{Session::get('message')}}</div>
+        @endif
+
+        {{-- Table --}}
+
+        <div class="overflow-x-auto relative mt-6">
+            <table class="w-full text-sm text-left">
+                <thead class="text-xs text-white uppercase bg-gray-700">
+                    <tr>
+                        <th scope="col" class="py-3 px-6">
+                            Nr Crt
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Produs
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            U.M.
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Pret
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Moneda
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Cota TVA
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Contine TVA?
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach($user->dateProdus as $key=>$produs)
+
+                        <tr class="bg-gray-300 border-b">
+                            <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap">
+                                {{$key+1}}
+                            </th>
+                            <td class="py-4 px-6">
+                                {{$produs->nume}}
+                            </td>
+                            <td class="py-4 px-6">
+                                {{$produs->um}}
+                            </td>
+                            <td class="py-4 px-6">
+                                {{$produs->pret}}
+                            </td>
+                            <td class="py-4 px-6">
+                                {{$produs->moneda}}
+                            </td>
+                            <td class="py-4 px-6">
+                                {{$produs->cota_tva}}
+                            </td>
+                            <td class="py-4 px-6">
+                                <div class="flex items-center">
+                                    @if($produs->tva == true)
+                                        <input checked id="checked-checkbox" type="checkbox" value="" class="w-3.5 h-3.5 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    @else
+                                        <input id="default-checkbox" type="checkbox" value="" class="w-3.5 h-3.5 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">    
+                                    @endif    
+                                </div>
+                            </td>
+                            <td class="py-4 px-6">
+                                <form action="{{route('date-produse.destroy', $produs->id)}}" method="POST" style="display: inline;">
+                                    @csrf 
+                                    {{method_field('DELETE')}}
+                                    <button class="font-medium text-red-500 hover:underline flex">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" class="fill-red-500"><path d="M12 12h2v12h-2zm6 0h2v12h-2z"/><path d="M4 6v2h2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h2V6zm4 22V8h16v20zm4-26h8v2h-8z"/><path fill="none" d="M0 0h32v32H0z" data-name="&lt;Transparent Rectangle&gt;"/></svg>
+                                        <p class="ml-1">Sterge Produs</p>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach 
+
+                </tbody>
+            </table>
+        </div>
+        {{-- Table End --}}
+    </div>
+</div>
+
+@endsection

@@ -64,8 +64,8 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-primary text-white">
-                <div class="pt-6 w-32">
-                    <div class="rounded-md h-9 py-3 text-sm bg-blue-700 flex items-center justify-center">
+                <div class="pt-6">
+                    <div class="rounded-md h-10 px-8 text-sm bg-blue-700 flex items-center justify-center">
                         {{ __('Modifica') }}
                     </div>
                 </div>

@@ -9,7 +9,7 @@
 
         <h3 class="text-xl font-bold py-4 text-gray-800 border-b-2">Date Firma</h3>
         @if($user->dateFirma)
-            <div class="mx-auto container bg-gray-50 border-gray-300 border rounded-md py-3 my-6 px-3 font-body text-sm">
+            <div class="mx-auto container bg-gray-50 border-gray-300 border rounded-t-md py-3 my-6 px-3 font-body text-sm">
                     <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 p-3 mb-4">
                         <div class="col">
                             <h3 class="uppercase font-bold text-blue-700">Denumire</h3>
@@ -52,13 +52,13 @@
                             {{method_field('DELETE')}}
                             <button class="font-medium text-red-500 hover:underline flex p-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" class="fill-red-500"><path d="M12 12h2v12h-2zm6 0h2v12h-2z"/><path d="M4 6v2h2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h2V6zm4 22V8h16v20zm4-26h8v2h-8z"/><path fill="none" d="M0 0h32v32H0z" data-name="&lt;Transparent Rectangle&gt;"/></svg>
-                                <p class="ml-1">Sterge Firma</p>
+                                <p class="ml-1">Sterge</p>
                             </button>
                         </form>
                         <a href="{{route('date-firma.edit', $user->dateFirma->id)}}">
                             <button class="font-medium text-green-700 hover:underline flex p-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" class="fill-green-700"><path d="M2 26h28v2H2zM25.4 9c.8-.8.8-2 0-2.8l-3.6-3.6c-.8-.8-2-.8-2.8 0l-15 15V24h6.4l15-15zm-5-5L24 7.6l-3 3L17.4 7l3-3zM6 22v-3.6l10-10 3.6 3.6-10 10H6z"/><path fill="none" d="M0 0h32v32H0z"/></svg>
-                                <p class="ml-1">Modifica Date</p>
+                                <p class="ml-1">Modifica</p>
                             </button>
                         </a>
                     </div>

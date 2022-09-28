@@ -1,8 +1,14 @@
 <nav class="border-b px-2 sm:px-4 py-4">
     <div class="container flex flex-wrap justify-between items-center mx-auto">
+        @if (Auth::guest())
         <a href="/" class="flex items-center">
             <img src="{{asset('img/logo.png')}}" class="mr-3 h-8" alt="logo">
         </a>
+        @else
+            <a href="{{route('account')}}" class="flex items-center">
+                <img src="{{asset('img/logo.png')}}" class="mr-3 h-8" alt="logo">
+            </a>
+        @endif
         <div class="flex items-center md:order-2">
             <button type="button"
                 class="flex mr-3 text-sm bg-white rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -22,11 +28,11 @@
                 </div>
                 <ul class="py-1 font-normal" aria-labelledby="user-menu-button">
                     <li>
-                        <a href="#"
+                        <a href="{{route('account')}}"
                             class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{route('account.date-cont')}}"
                             class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Setari</a>
                     </li>
                     <li>

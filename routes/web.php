@@ -50,4 +50,6 @@ Route::get('/account/date-produse', [DateProduseController::class, 'index'])->na
 Route::post('/account/date-produse/{id}', [DateProduseController::class, 'store'])->name('date-produse.store');
 Route::delete('/account/date-produse/{id}', [DateProduseController::class, 'destroy'])->name('date-produse.destroy');
 
+Route::get('/account/factura/{id}', [FacturaController::class, 'invoice'])->name('factura.invoice');
+
 Auth::routes();

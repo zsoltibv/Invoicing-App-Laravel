@@ -17,7 +17,7 @@
                             <label for="email" class="col-md-4 col-form-label">{{ __('Email Address') }}</label>
 
                             <div class="py-3 flex flex-col">
-                                <input id="email" type="email" class="h-9 p-2 text-md bg-blue-100
+                                <input id="email" type="email" class="rounded-md bg-gray-50 border border-gray-300 text-gray-900 text-sm block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
                                  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -32,7 +32,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="py-3 flex flex-col">
-                                <input id="password" type="password" class="h-9 p-2 text-md bg-blue-100
+                                <input id="password" type="password" class="rounded-md bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
                                  @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="row mb-0">
-                            <button type="submit" class="btn btn-primary text-white h-9 py-3 text-md bg-sky-700 flex items-center justify-center w-full">
+                            <button type="submit" class="rounded-md h-10 py-3 text-sm bg-blue-700 flex items-center justify-center w-full text-white">
                                         {{ __('Login') }}
                             </button>
                             

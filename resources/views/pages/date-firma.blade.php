@@ -9,34 +9,34 @@
 
         <h3 class="text-xl font-bold py-4 text-gray-800 border-b-2">Date Firma</h3>
         @if($user->dateFirma)
-            <div class="mx-auto container bg-gray-300 py-3 my-6 px-3 font-body text-sm">
+            <div class="mx-auto container bg-gray-50 border-gray-300 border rounded-md py-3 my-6 px-3 font-body text-sm">
                     <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 p-3 mb-4">
                         <div class="col">
-                            <h3 class="uppercase font-bold">Denumire</h3>
+                            <h3 class="uppercase font-bold text-blue-700">Denumire</h3>
                             <p class="mt-3">{{$user->dateFirma->denumire}}</p>
                         </div>
                         <div class="col">
-                            <h3 class="uppercase font-bold">CUI</h3>
+                            <h3 class="uppercase font-bold text-blue-700">CUI</h3>
                             <p class="mt-3">{{$user->dateFirma->cui}}</p>
                         </div>
                         <div class="col">
-                            <h3 class="uppercase font-bold">Reg. Comertului</h3>
+                            <h3 class="uppercase font-bold text-blue-700">Reg. Comertului</h3>
                             <p class="mt-3">{{$user->dateFirma->reg_com}}</p>
                         </div>
                         <div class="col">
-                            <h3 class="uppercase font-bold">Judet</h3>
+                            <h3 class="uppercase font-bold text-blue-700">Judet</h3>
                             <p class="mt-3">{{$user->dateFirma->judet}}</p>
                         </div>
                         <div class="col">
-                            <h3 class="uppercase font-bold">Oras</h3>
+                            <h3 class="uppercase font-bold text-blue-700">Oras</h3>
                             <p class="mt-3">{{$user->dateFirma->judet}}</p>
                         </div>
                         <div class="col">
-                            <h3 class="uppercase font-bold">Adresa</h3>
+                            <h3 class="uppercase font-bold text-blue-700">Adresa</h3>
                             <p class="mt-3">{{$user->dateFirma->adresa}}</p>
                         </div>
                         <div class="col">
-                            <h3 class="uppercase font-bold">Platitor TVA</h3>
+                            <h3 class="uppercase font-bold text-blue-700">Platitor TVA</h3>
                             <p class="mt-3">
                                 @if($user->dateFirma->tva == 1)
                                     DA

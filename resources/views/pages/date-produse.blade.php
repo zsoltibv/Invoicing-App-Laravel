@@ -14,7 +14,7 @@
                 <div class="controls">
                     <label for="nume" class="col-md-4 col-form-label">{{ __('Nume Produs*') }}</label>
                     <div class="py-3 flex flex-col">
-                        <input id="nume" type="text" class="h-9 p-2 text-sm bg-blue-100
+                        <input id="nume" type="text" class="rounded-md bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
                                  @error('nume') is-invalid @enderror" name="nume" value="" required autofocus>
 
                         @error('nume')
@@ -27,7 +27,7 @@
                 <div class="controls">
                     <label for="um" class="col-md-4 col-form-label">{{ __('U.M.*') }}</label>
                     <div class="py-3 flex flex-col">
-                        <input id="um" type="number" class="h-9 p-2 text-sm bg-blue-100
+                        <input id="um" type="number" class="rounded-md bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
                                  @error('um') is-invalid @enderror" name="um" value="" required
                             autocomplete="um" autofocus>
 
@@ -41,7 +41,7 @@
                 <div class="controls">
                     <label for="pret" class="col-md-4 col-form-label">{{ __('Pret*') }}</label>
                     <div class="py-3 flex flex-col">
-                        <input id="pret" type="number" class="h-9 p-2 text-sm bg-blue-100
+                        <input id="pret" type="number" class="rounded-md bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
                                  @error('pret') is-invalid @enderror" name="pret" value="" required
                             autocomplete="pret" autofocus>
 
@@ -58,7 +58,7 @@
                             }}</label>
 
                         <div class="options py-3">
-                            <select name="moneda" id="moneda" class="h-9 p-2 text-sm bg-blue-100 w-full">
+                            <select name="moneda" id="moneda" class="rounded-md bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full">
                                 <option value="ron">RON</option>
                                 <option value="eur">EUR</option>
                                 <option value="usd">USD</option>
@@ -70,7 +70,7 @@
                 <div class="controls">
                     <label for="cota_tva" class="col-md-4 col-form-label">{{ __('Cota TVA') }}</label>
                     <div class="py-3 flex flex-col">
-                        <input id="cota_tva" type="number" class="h-9 p-2 text-sm bg-blue-100
+                        <input id="cota_tva" type="number" class="rounded-md bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
                                  @error('cota_tva') is-invalid @enderror" name="cota_tva" value="19" required
                             autocomplete="cota_tva" autofocus>
 
@@ -103,8 +103,8 @@
             </div>
             <button type="submit" class="btn btn-primary text-white">
                 <div class="pt-6 w-32">
-                    <div class="h-9 py-3 text-md bg-sky-700 flex items-center justify-center">
-                        {{ __('Add Product') }}
+                    <div class="rounded-md h-9 py-3 text-sm bg-blue-700 flex items-center justify-center">
+                        {{ __('Adauga Produs') }}
                     </div>
                 </div>
             </button>
@@ -115,9 +115,9 @@
 
         {{-- Table --}}
 
-        <div class="overflow-x-auto relative mt-6">
+        <div class="overflow-x-auto relative mt-6 rounded-t-md">
             <table class="w-full text-sm text-left">
-                <thead class="text-xs text-white uppercase bg-gray-700">
+                <thead class="text-xs text-gray-500 uppercase bg-gray-100 border rounded-md">
                     <tr>
                         <th scope="col" class="py-3 px-6">
                             Nr Crt
@@ -147,20 +147,20 @@
 
                     @foreach($user->dateProdus as $key=>$produs)
 
-                        <tr class="bg-gray-300 border-b">
+                        <tr class="border">
                             <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap">
                                 {{$key+1}}
                             </th>
-                            <td class="py-4 px-6">
+                            <td class="py-4 px-6 font-medium">
                                 {{$produs->nume}}
                             </td>
                             <td class="py-4 px-6">
                                 {{$produs->um}}
                             </td>
-                            <td class="py-4 px-6">
+                            <td class="py-4 px-6 text-blue-700 font-medium">
                                 {{$produs->pret}}
                             </td>
-                            <td class="py-4 px-6">
+                            <td class="py-4 px-6 uppercase font-medium">
                                 {{$produs->moneda}}
                             </td>
                             <td class="py-4 px-6">
@@ -185,7 +185,7 @@
                                     {{method_field('DELETE')}}
                                     <button class="font-medium text-red-500 hover:underline flex">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" class="fill-red-500"><path d="M12 12h2v12h-2zm6 0h2v12h-2z"/><path d="M4 6v2h2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h2V6zm4 22V8h16v20zm4-26h8v2h-8z"/><path fill="none" d="M0 0h32v32H0z" data-name="&lt;Transparent Rectangle&gt;"/></svg>
-                                        <p class="ml-1">Sterge Produs</p>
+                                        <p class="ml-1">Sterge</p>
                                     </button>
                                 </form>
                             </td>

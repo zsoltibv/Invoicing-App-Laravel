@@ -13,9 +13,9 @@
             <div
                 class="control-wraper pt-3 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-3 md:grid-cols-2 md:gap-x-3 text-sm">
                 <div class="controls">
-                    <label for="name" class="col-md-4 col-form-label">{{ __('Name') }}</label>
+                    <label for="name" class="col-md-4 col-form-label">{{ __('Nume*') }}</label>
                     <div class="py-3 flex flex-col">
-                        <input id="name" type="name" class="h-9 p-2 text-sm bg-blue-100
+                        <input id="name" type="name" class="rounded-md bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
                                  @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required
                             autofocus>
 
@@ -27,9 +27,9 @@
                     </div>
                 </div>
                 <div class="controls">
-                    <label for="email" class="col-md-4 col-form-label">{{ __('Email Address') }}</label>
+                    <label for="email" class="col-md-4 col-form-label">{{ __('Email*') }}</label>
                     <div class="py-3 flex flex-col">
-                        <input id="email" type="email" class="h-9 p-2 text-sm bg-blue-100
+                        <input id="email" type="email" class="rounded-md bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
                                  @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required
                             autocomplete="email" autofocus>
 
@@ -42,22 +42,22 @@
                 </div>
                 <div class="controls">
                     <div class="">
-                        <label for="old_password" class="col-md-4 col-form-label text-md-end">{{ __('Current Password')
+                        <label for="old_password" class="col-md-4 col-form-label text-md-end">{{ __('Parola Curenta*')
                             }}</label>
 
                         <div class="py-3 flex flex-col">
-                            <input id="old_password" type="password" class="h-9 p-2 text-md bg-blue-100"
+                            <input id="old_password" type="password" class="rounded-md bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 name="old_password" required autocomplete="password">
                         </div>
                     </div>
                 </div>
                 <div class="controls">
                     <div class="">
-                        <label for="new_password" class="col-md-4 col-form-label text-md-end">{{ __('New Password')
+                        <label for="new_password" class="col-md-4 col-form-label text-md-end">{{ __('Parola Noua')
                             }}</label>
 
                         <div class="py-3 flex flex-col">
-                            <input id="new_password" type="password" class="h-9 p-2 text-md bg-blue-100"
+                            <input id="new_password" type="password" class="rounded-md bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 name="new_password" autocomplete="new-password">
                         </div>
                     </div>
@@ -65,8 +65,8 @@
             </div>
             <button type="submit" class="btn btn-primary text-white">
                 <div class="pt-6 w-32">
-                    <div class="h-9 py-3 text-md bg-sky-700 flex items-center justify-center">
-                        {{ __('Modify') }}
+                    <div class="rounded-md h-9 py-3 text-sm bg-blue-700 flex items-center justify-center">
+                        {{ __('Modifica') }}
                     </div>
                 </div>
             </button>

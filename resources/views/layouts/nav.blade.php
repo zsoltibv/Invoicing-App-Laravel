@@ -12,7 +12,7 @@
                 <img class="sm:w-8 sm:h-8 w-6 h-6 rounded-full" src="{{asset('img/user.png')}}" alt="user photo">
             </button>
             <!-- Dropdown menu -->
-            <div class="font-body hidden z-50 my-4 text-base list-none bg-gray-100  rounded-md divide-y border-b" id="user-dropdown"
+            <div class="font-body hidden z-50 my-4 text-base list-none bg-gray-100 rounded-md divide-y border-b" id="user-dropdown"
                 data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
                 style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 210px);">
                 <div class="py-3 px-4">

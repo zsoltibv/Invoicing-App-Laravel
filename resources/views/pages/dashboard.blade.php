@@ -7,8 +7,18 @@
 <div class="bg-container bg-gray-30 h-full">
     <div class="mx-auto container py-3 my-6 font-body md:px-0 px-3">
 
-        <h3 class="text-2xl font-bold py-4 text-gray-800">Dashboard</h3>
-        <p>Statistici pentru tine.</p>
+        <div class="header flex justify-between">
+            <div class="title">
+                <h3 class="text-2xl font-bold py-4 text-gray-800">Dashboard</h3>
+                <p>Statistici pentru tine.</p>
+            </div>
+            <a href="" class="py-4">
+                <button class="h-10 pl-2 pr-4 bg-blue-700 text-white text-sm rounded-md flex items-center">
+                    <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24"><path d="M17 15V8h-2v7H8v2h7v7h2v-7h7v-2z"/><path fill="none" d="M0 0h32v32H0z"/></svg>
+                    <p>Creaza Factura</p>
+                </button>
+            </a>
+        </div>
 
         <div class="mt-8 text-gray-700 control-wraper pt-3 grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-3 text-sm">
             <div class="col-1 border border-gray-300 rounded-lg p-6">
@@ -44,6 +54,11 @@
                     <h2 class="text-md font-semibold uppercase mt-6">INCASAT</h2>
                     <p class="text-4xl font-semibold mt-3 text-black relative">3560 <span class="ml-1 mt-1 font-medium text-sm absolute top-0">RON</span></p>
                 </div>
+            </div>
+        </div>
+        <div class="details flex py-12">
+            <div class="recent-activity border border-gray-300 rounded-lg p-6 w-1/2">
+                <h2 class="font-semibold">Facturi Recente</h2>
             </div>
         </div>
     </div>

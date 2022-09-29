@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ContBancar;
 use App\Models\DateClient;
+use App\Models\DateProdus;
 use Illuminate\Http\Request;
 use LaravelDaily\Invoices\Invoice;
 use Illuminate\Support\Facades\Auth;
@@ -20,10 +21,11 @@ class FacturaController extends Controller
         return view('pages.factura', compact('user'));
     }
 
-    public function invoice($client_id){
-        $user = Auth::user();
+    public function generate(Request $request){
 
-        $dateClient = DateClient::find($client_id);
+        $user = Auth::user();
+        $dateClient = DateClient::find($request->client);
+        $dateProdus = DateProdus::find($request->produs);
 
         $client = new Party([
             'name' => $user->dateFirma->denumire,
@@ -49,16 +51,14 @@ class FacturaController extends Controller
             ],
         ]);
 
-        $item = (new InvoiceItem())->title('Service 1')->pricePerUnit(2);
+        $item = (new InvoiceItem())->title($dateProdus->nume)->pricePerUnit($dateProdus->pret)->quantity((float)$dateProdus->um);
 
         $invoice = Invoice::make()
             ->seller($client)
             ->buyer($customer)
-            ->discountByPercent(10)
-            ->taxRate(15)
-            ->shipping(1.99)
+            ->taxRate($dateProdus->cota_tva)
             ->addItem($item);
 
-        return $invoice->stream();
+        return $invoice->render()->toHtml();
     }
 }

@@ -25,8 +25,6 @@ Route::get('/', function () {
 
 Route::get('/account', [HomeController::class, 'index'])->name('account');
 
-Route::get('/account/factura', [FacturaController::class, 'index'])->name('account.factura');
-
 Route::get('/account/date-firma', [DateFirmaController::class, 'index'])->name('account.date-firma');
 Route::get('/account/date-firma/{id}', [DateFirmaController::class, 'edit'])->name('date-firma.edit');
 Route::post('/account/date-firma/{id}', [DateFirmaController::class, 'getCompanyDetails'])->name('date-firma.getdetails');
@@ -50,6 +48,8 @@ Route::get('/account/date-produse', [DateProduseController::class, 'index'])->na
 Route::post('/account/date-produse/{id}', [DateProduseController::class, 'store'])->name('date-produse.store');
 Route::delete('/account/date-produse/{id}', [DateProduseController::class, 'destroy'])->name('date-produse.destroy');
 
-Route::get('/account/factura/{id}', [FacturaController::class, 'invoice'])->name('factura.invoice');
+Route::get('/account/factura', [FacturaController::class, 'index'])->name('account.factura');
+Route::post('/account/factura/{id}', [FacturaController::class, 'generate'])->name('factura.generate');
+Route::get('/account/factura/{id}/view', [FacturaController::class, 'view'])->name('factura.view');
 
 Auth::routes();

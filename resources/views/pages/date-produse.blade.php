@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="controls">
-                    <label for="um" class="col-md-4 col-form-label">{{ __('U.M.*') }}</label>
+                    <label for="um" class="col-md-4 col-form-label">{{ __('Cantitate*') }}</label>
                     <div class="py-3 flex flex-col">
                         <input id="um" type="number" class="rounded-md bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
                                  @error('um') is-invalid @enderror" name="um" value="" required
@@ -113,8 +113,6 @@
             <div class="text-black text-md mt-3">{{Session::get('message')}}</div>
         @endif
 
-        {{-- Table --}}
-
         <div class="overflow-x-auto relative mt-6 rounded-t-md">
             <table class="w-full text-sm text-left">
                 <thead class="text-xs text-gray-500 uppercase bg-gray-100 border rounded-md">
@@ -126,7 +124,7 @@
                             Produs
                         </th>
                         <th scope="col" class="py-3 px-6">
-                            U.M.
+                            Cant.
                         </th>
                         <th scope="col" class="py-3 px-6">
                             Pret

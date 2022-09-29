@@ -7,7 +7,7 @@
 <div class="bg-container bg-gray-30 h-full">
     <div class="mx-auto container py-3 my-6 font-body md:px-0 px-3">
         <h3 class="text-2xl font-bold py-4 text-gray-800 border-b">Emite Factura</h3>
-        <form action="{{route('date-bancare.store', ['id' => $user->id])}}" method="POST" enctype="multipart/form-data" class="mt-6">
+        <form action="{{route('factura.generate', $user->id)}}" method="POST" enctype="multipart/form-data" class="mt-6">
             @csrf
             <div
                 class="control-wraper pt-3 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-3 md:grid-cols-2 md:gap-x-3 text-sm">

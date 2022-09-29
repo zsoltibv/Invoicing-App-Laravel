@@ -21,6 +21,12 @@ class FacturaController extends Controller
         return view('pages.factura', compact('user'));
     }
 
+    public function show(){
+        $user = Auth::user();
+
+        return view('pages.factura-show', compact('user'));
+    }
+
     public function generate(Request $request){
 
         $user = Auth::user();
@@ -59,8 +65,10 @@ class FacturaController extends Controller
             ->taxRate($dateProdus->cota_tva)
             ->addItem($item);
 
-        $preview = $invoice->render()->toHtml();
+        return $invoice->stream();
 
-        return view('pages.factura-view', compact('preview'));
+        // return $invoice->render()->toHtml();
+
+        // return redirect()->route('factura.show', $user->id);
     }
 }

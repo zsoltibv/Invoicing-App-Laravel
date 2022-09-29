@@ -6,9 +6,9 @@
 
 <div class="bg-container bg-gray-30 h-full">
     <div class="mx-auto container py-3 my-6 font-body md:px-0 px-3">
-        <h3 class="text-xl font-bold py-4 text-gray-800 border-b-2">Date Clienti</h3>
+        <h3 class="text-2xl font-bold py-4 text-gray-800 border-b">Date Clienti</h3>
         <form action="{{route('date-clienti.getdetails', $user->id)}}" method="POST" enctype="multipart/form-data"
-            class="mt-6">
+            class="mt-8">
             @csrf
             <label for="cod_fiscal" class="col-md-4 col-form-label">{{ __('Cod Fiscal*') }}</label>
             <div class="control-wraper text-sm flex md:flex-row flex-col md:items-center">

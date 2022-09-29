@@ -7,9 +7,9 @@
 <div class="bg-container bg-gray-30 h-full">
     <div class="mx-auto container py-3 my-6 font-body md:px-0 px-3">
 
-        <h3 class="text-xl font-bold py-4 text-gray-800 border-b-2">Date Firma</h3>
+        <h3 class="text-2xl font-bold py-4 text-gray-800 border-b">Date Firma</h3>
         @if($user->dateFirma)
-        <div class="mx-auto container bg-gray-50 border-gray-300 border rounded-t-md py-3 my-6 px-3 font-body text-sm">
+        <div class="mx-auto container bg-gray-50 border-gray-300 border rounded-t-md py-3 my-8 px-3 font-body text-sm">
             <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 p-3 mb-4">
                 <div class="col">
                     <h3 class="uppercase font-bold text-blue-700">Denumire</h3>

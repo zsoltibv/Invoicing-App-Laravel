@@ -7,8 +7,8 @@
 <div class="bg-container bg-gray-30 h-full">
     <div class="mx-auto container py-3 my-6 font-body md:px-0 px-3">
 
-        <h3 class="text-xl font-bold py-4 text-gray-800 border-b-2">Date Firma</h3>
-        <form action="{{route('date-firma.update', $user->dateFirma->id)}}" method="POST" enctype="multipart/form-data" class="mt-3">
+        <h3 class="text-2xl font-bold py-4 text-gray-800 border-b">Date Firma</h3>
+        <form action="{{route('date-firma.update', $user->dateFirma->id)}}" method="POST" enctype="multipart/form-data" class="mt-6">
             @csrf
             {{method_field('PUT')}}
             <div
@@ -98,6 +98,13 @@
                 </div>
             </div>
             <div class="controls flex space-x-3">
+                <a href="{{route('account.date-firma')}}">
+                    <div class="pt-6">
+                        <div class="h-10 px-9 text-blue-700 border border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            {{ __('Inapoi') }}
+                        </div>
+                    </div>
+                </a>
                 <button type="submit" class="btn btn-primary text-white">
                     <div class="pt-6 w-32">
                         <div class="rounded-md h-10 py-3 text-sm bg-blue-700 flex items-center justify-center">
@@ -105,13 +112,6 @@
                         </div>
                     </div>
                 </button>
-                <a href="{{route('account.date-firma')}}">
-                    <div class="pt-6">
-                        <div class="h-10 px-2.5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="fill-white"><path fill="none" d="M0 0h24v24H0z"/><path d="M8 7v4L2 6l6-5v4h5a8 8 0 1 1 0 16H4v-2h9a6 6 0 1 0 0-12H8z"/></svg>
-                        </div>
-                    </div>
-                </a>
             </div>
         </form>
         @if(Session::has('message'))

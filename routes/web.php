@@ -50,6 +50,5 @@ Route::delete('/account/date-produse/{id}', [DateProduseController::class, 'dest
 
 Route::get('/account/factura', [FacturaController::class, 'index'])->name('account.factura');
 Route::post('/account/factura/{id}', [FacturaController::class, 'generate'])->name('factura.generate');
-Route::get('/account/factura/{id}/view', [FacturaController::class, 'view'])->name('factura.view');
 
 Auth::routes();

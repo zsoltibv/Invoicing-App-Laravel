@@ -59,6 +59,8 @@ class FacturaController extends Controller
             ->taxRate($dateProdus->cota_tva)
             ->addItem($item);
 
-        return $invoice->render()->toHtml();
+        $preview = $invoice->render()->toHtml();
+
+        return view('pages.factura-view', compact('preview'));
     }
 }

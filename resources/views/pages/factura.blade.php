@@ -21,7 +21,7 @@
                             </select>
                             <a href="{{route('account.date-clienti')}}" class="inline-flex items-center justify-center w-48 text-sm text-blue-700 font-medium rounded-r-md border border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                                 <svg class="fill-blue-700 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24"><path d="M17 15V8h-2v7H8v2h7v7h2v-7h7v-2z"/><path fill="none" d="M0 0h32v32H0z"/></svg>
-                                <span class="">Client&nbsp;Nou</span>
+                                <span class="">Client&nbsp;No</span>
                             </a>
                         </div>
                 </div>

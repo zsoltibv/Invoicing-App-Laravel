@@ -90,8 +90,8 @@
                     <div class="empty flex flex-col justify-center items-center h-64">
                         <h2 class="text-2xl font-medium mb-3">Nici-o activitate inca.</h2>
                         <p>Creaza o factura.</p>
-                        <a href="{{route('account.date-produse')}}" class="pt-7">
-                            <button class="h-10 px-8 border border-gray-300 text-black font-medium text-sm rounded-md flex items-center">
+                        <a href="{{route('account')}}" class="pt-7">
+                            <button class="cursor-not-allowed h-10 px-8 border border-gray-300 text-black font-medium text-sm rounded-md flex items-center">
                                 <p>Vezi Facturi</p>
                             </button>
                         </a>

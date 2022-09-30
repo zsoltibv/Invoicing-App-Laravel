@@ -18,7 +18,7 @@ return [
     'phone'                  => 'Phone',
     'description'            => 'Descriere',
     'units'                  => 'Units',
-    'quantity'               => 'U.M.',
+    'quantity'               => 'Cantitate',
     'price'                  => 'Pret',
     'discount'               => 'Discount',
     'tax'                    => 'Tax',

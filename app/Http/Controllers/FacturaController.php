@@ -21,17 +21,18 @@ class FacturaController extends Controller
         return view('pages.factura', compact('user'));
     }
 
-    public function show(){
+    public function show()
+    {
         $user = Auth::user();
 
         return view('pages.factura-show', compact('user'));
     }
 
-    public function generate(Request $request){
+    public function generate(Request $request)
+    {
 
         $user = Auth::user();
         $dateClient = DateClient::find($request->client);
-        $dateProdus = DateProdus::find($request->produs);
 
         $client = new Party([
             'name' => $user->dateFirma->denumire,
@@ -57,13 +58,18 @@ class FacturaController extends Controller
             ],
         ]);
 
-        $item = (new InvoiceItem())->title($dateProdus->nume)->pricePerUnit($dateProdus->pret)->quantity((float)$dateProdus->um);
+        $len = count($request->orderProducts);
+
+        for($i = 0; $i < $len; $i++){
+            $dateProdus = DateProdus::find($request->orderProducts[$i]['product_id']);
+            $items[$i] = (new InvoiceItem())->title($dateProdus->nume)->pricePerUnit($dateProdus->pret)->quantity((float)$dateProdus->um);
+        }
 
         $invoice = Invoice::make()
             ->seller($client)
             ->buyer($customer)
             ->taxRate($dateProdus->cota_tva)
-            ->addItem($item);
+            ->addItems($items);
 
         return $invoice->stream();
 

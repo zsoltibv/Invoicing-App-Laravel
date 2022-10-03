@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     @vite('resources/css/app.css')
+    @livewireStyles
 </head>
 <body>
     <div class="app">
@@ -13,5 +14,7 @@
     </div>
     {{-- Flowbite Script --}}
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    {{-- Livewire Script --}}
+    @livewireScripts
 </body>
 </html>

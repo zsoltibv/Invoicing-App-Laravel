@@ -47,7 +47,7 @@ Route::delete('/account/date-clienti/{id}', [DateClientiController::class, 'dest
 Route::get('/account/date-produse', [DateProduseController::class, 'index'])->name('account.date-produse');
 Route::post('/account/date-produse/{id}', [DateProduseController::class, 'store'])->name('date-produse.store');
 Route::delete('/account/date-produse/{id}', [DateProduseController::class, 'destroy'])->name('date-produse.destroy');
-
+    
 Route::get('/account/factura', [FacturaController::class, 'index'])->name('account.factura');
 Route::post('/account/factura/{id}', [FacturaController::class, 'generate'])->name('factura.generate');
 Route::get('/account/factura/{id}/show', [FacturaController::class, 'show'])->name('factura.show');

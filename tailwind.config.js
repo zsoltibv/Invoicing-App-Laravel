@@ -11,6 +11,9 @@ module.exports = {
       fontFamily: {
         'body': ['Inter', 'sans-serif'],
       },
+      screens: {
+        '2-xl': '1400px',
+      }
     },
     screens: {
       sm: '480px',

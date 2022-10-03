@@ -6,7 +6,7 @@
 
 <div class="bg-container bg-gray-30 h-full">
     <div class="mx-auto container py-3 my-6 font-body md:px-0 px-3">
-        <h3 class="text-2xl font-bold py-4 text-gray-800 border-b">Date Cont</h3>
+        <h3 class="text-2xl font-bold py-4 text-gray-800 border-b">Date Con</h3>
         <form action="{{route('date-cont.update', ['id' => $user->id])}}" method="POST" enctype="multipart/form-data" class="mt-6">
             @csrf
             {{method_field('PUT')}}

@@ -12,15 +12,14 @@
                 <h3 class="text-2xl font-bold py-4 text-gray-800">Dashboard</h3>
                 <p>Statistici pentru tine.</p>
             </div>
-            <a href="{{route('account.factura')}}" class="py-4">
-                <button class="h-10 pl-3 pr-5 bg-blue-700 text-white text-sm rounded-md flex items-center">
-                    <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24"
-                        height="24">
-                        <path d="M17 15V8h-2v7H8v2h7v7h2v-7h7v-2z" />
-                        <path fill="none" d="M0 0h32v32H0z" />
-                    </svg>
-                    <p>Creaza Factura</p>
-                </button>
+            <a href="{{route('account.factura')}}" class="mt-5 h-10 pl-3 pr-5 bg-blue-700 text-white text-sm rounded-md flex items-center">
+
+                <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24"
+                    height="24">
+                    <path d="M17 15V8h-2v7H8v2h7v7h2v-7h7v-2z" />
+                    <path fill="none" d="M0 0h32v32H0z" />
+                </svg>
+                <p>Creaza Factura</p>
             </a>
         </div>
 
@@ -91,7 +90,8 @@
                         <h2 class="text-2xl font-medium mb-3">Nici-o activitate inca.</h2>
                         <p>Creaza o factura.</p>
                         <a href="{{route('account')}}" class="pt-7">
-                            <button class="cursor-not-allowed h-10 px-8 border border-gray-300 text-black font-medium text-sm rounded-md flex items-center">
+                            <button
+                                class="cursor-not-allowed h-10 px-8 border border-gray-300 text-black font-medium text-sm rounded-md flex items-center">
                                 <p>Vezi Facturi</p>
                             </button>
                         </a>
@@ -106,55 +106,73 @@
                         <h2 class="text-2xl font-medium mb-3">Nici-un produs inca.</h2>
                         <p>Creaza o factura.</p>
                         <a href="{{route('account.date-produse')}}" class="pt-7">
-                            <button class="h-10 px-8 border border-gray-300 text-black font-medium text-sm rounded-md flex items-center">
+                            <button
+                                class="h-10 px-8 border border-gray-300 text-black font-medium text-sm rounded-md flex items-center">
                                 <p>Creaza Produs</p>
                             </button>
                         </a>
                     </div>
                     @else
-                        <div class="overflow-x-auto relative mt-6 px-2">
-                            <table class="w-full text-sm text-left">
-                                <tbody>
-                                    @foreach($user->dateProdus as $key=>$produs)
-            
-                                        <tr class="">
-                                            <th scope="row" class="font-medium whitespace-nowrap">
-                                                <div class="flex items-center justify-center bg-gray-50 rounded-full h-9 w-9">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20"><path d="m16.08 189.4 28.58 233.87A28 28 0 0 0 72.52 448h367a28 28 0 0 0 27.86-24.73l28.54-233.87A12 12 0 0 0 484 176H28a12 12 0 0 0-11.92 13.4zM464 124a28 28 0 0 0-28-28H244.84l-48-32H76a28 28 0 0 0-28 28v52h416z"/></svg>
-                                                </div>
-                                            </th>
-                                            <td class="py-4 px-4 font-medium">
-                                                {{$produs->nume}}
-                                            </td>
-                                            <td class="py-4 px-4 text-blue-700 font-medium">
-                                                {{$produs->pret}}
-                                            </td>
-                                            <td class="py-4 px-4 uppercase font-medium">
-                                                {{$produs->moneda}}
-                                            </td>
-                                            <td class="py-4 px-4">
-                                                {{$produs->cota_tva}}%
-                                            </td>
-                                            <td class="py-4 px-4">
-                                                <div class="flex items-center">
-                                                    @if($produs->tva == true)
-                                                        <span class="inline-flex items-center p-1 mr-2 text-sm font-semibold text-blue-800 bg-blue-100 rounded-full dark:bg-blue-200 dark:text-blue-800">
-                                                            <svg aria-hidden="true" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                                        </span>
-                                                    @else
-                                                        <span class="inline-flex items-center p-1 mr-2 text-sm font-semibold text-blue-800 bg-blue-100 rounded-full dark:bg-blue-200 dark:text-blue-800">
-                                                            <svg aria-hidden="true" class="w-3.5 h-3.5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                                                        </span>
-                                                    @endif    
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @endforeach 
-                
-                                </tbody>
-                            </table>
-                        </div>
-                        {{-- Table End --}}
+                    <div class="overflow-x-auto relative mt-6 px-2">
+                        <table class="w-full text-sm text-left">
+                            <tbody>
+                                @foreach($user->dateProdus as $key=>$produs)
+
+                                <tr class="">
+                                    <th scope="row" class="font-medium whitespace-nowrap">
+                                        <div class="flex items-center justify-center bg-gray-50 rounded-full h-9 w-9">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20"
+                                                height="20">
+                                                <path
+                                                    d="m16.08 189.4 28.58 233.87A28 28 0 0 0 72.52 448h367a28 28 0 0 0 27.86-24.73l28.54-233.87A12 12 0 0 0 484 176H28a12 12 0 0 0-11.92 13.4zM464 124a28 28 0 0 0-28-28H244.84l-48-32H76a28 28 0 0 0-28 28v52h416z" />
+                                            </svg>
+                                        </div>
+                                    </th>
+                                    <td class="py-4 px-4 font-medium">
+                                        {{$produs->nume}}
+                                    </td>
+                                    <td class="py-4 px-4 text-blue-700 font-medium">
+                                        {{$produs->pret}}
+                                    </td>
+                                    <td class="py-4 px-4 uppercase font-medium">
+                                        {{$produs->moneda}}
+                                    </td>
+                                    <td class="py-4 px-4">
+                                        {{$produs->cota_tva}}%
+                                    </td>
+                                    <td class="py-4 px-4">
+                                        <div class="flex items-center">
+                                            @if($produs->tva == true)
+                                            <span
+                                                class="inline-flex items-center p-1 mr-2 text-sm font-semibold text-blue-800 bg-blue-100 rounded-full dark:bg-blue-200 dark:text-blue-800">
+                                                <svg aria-hidden="true" class="w-3.5 h-3.5" fill="currentColor"
+                                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </span>
+                                            @else
+                                            <span
+                                                class="inline-flex items-center p-1 mr-2 text-sm font-semibold text-blue-800 bg-blue-100 rounded-full dark:bg-blue-200 dark:text-blue-800">
+                                                <svg aria-hidden="true" class="w-3.5 h-3.5" aria-hidden="true"
+                                                    fill="currentColor" viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </span>
+                                            @endif
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
+                    </div>
+                    {{-- Table End --}}
                     @endif
                 </div>
             </div>

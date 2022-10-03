@@ -20,6 +20,12 @@ class FacturaForm extends Component
         ];
     }
 
+    public function removeProduct($index)
+    {
+        unset($this->orderProducts[$index]);
+        $this->orderProducts = array_values($this->orderProducts);
+    }
+
     public function addProduct(){
         $this->orderProducts[] = ['product_id' => '', 'quantity' => 1];
     }

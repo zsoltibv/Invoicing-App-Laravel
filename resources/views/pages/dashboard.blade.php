@@ -99,7 +99,7 @@
                 </div>
             </div>
             <div class="recent-activity border border-gray-300 rounded-lg p-6 md:w-1/2 w-full">
-                <h3 class="font-semibold">Produse Recente</h3>
+                <h3 class="font-semibold">Produs Recente</h3>
                 <div class="content">
                     @if($user->dateProdus->count() == 0)
                     <div class="empty flex flex-col justify-center items-center h-64">

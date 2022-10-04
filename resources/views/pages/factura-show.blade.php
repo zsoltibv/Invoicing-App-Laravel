@@ -6,7 +6,7 @@
 
 <div class="container mx-auto">
     <div class="factura max-w-xl">
-        {{-- {!! $preview !!} --}}
+        {!! $preview !!}
     </div>
 </div>
 

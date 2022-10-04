@@ -21,11 +21,11 @@ class FacturaController extends Controller
         return view('pages.factura', compact('user'));
     }
 
-    public function show()
+    public function show($preview)
     {
         $user = Auth::user();
 
-        return view('pages.factura-show', compact('user'));
+        return view('pages.factura-show', compact('user', 'preview'));
     }
 
     public function generate(Request $request)
@@ -62,18 +62,17 @@ class FacturaController extends Controller
 
         for($i = 0; $i < $len; $i++){
             $dateProdus = DateProdus::find($request->orderProducts[$i]['product_id']);
-            $items[$i] = (new InvoiceItem())->title($dateProdus->nume)->pricePerUnit($dateProdus->pret)->quantity((float)$dateProdus->um);
+            $items[$i] = (new InvoiceItem())->title($dateProdus->nume)->pricePerUnit($dateProdus->pret)->quantity((float)$dateProdus->um)->taxByPercent($dateProdus->cota_tva);
         }
 
         $invoice = Invoice::make()
             ->seller($client)
             ->buyer($customer)
-            ->taxRate($dateProdus->cota_tva)
             ->addItems($items);
 
         return $invoice->stream();
 
-        // return $invoice->render()->toHtml();
+        //return $invoice->render()->toHtml();
 
         // return redirect()->route('factura.show', $user->id);
     }

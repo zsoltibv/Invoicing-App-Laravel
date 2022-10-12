@@ -71,12 +71,14 @@ class FacturaController extends Controller
                 $items[$i] = (new InvoiceItem())->title($dateProdus->nume)->pricePerUnit($dateProdus->pret)->units($dateProdus->um)->quantity((float)$quantity);
         }
 
+        // dd($request);
+
         $invoice = Invoice::make()
             ->seller($client)
             ->buyer($customer)
             ->addItems($items)
-            ->date(Carbon::parse($dataEmiterii))
-            ->dueDate(Carbon::parse($dataScadentei));
+            ->date(Carbon::createFromFormat('d/m/Y', $dataEmiterii))
+            ->dueDate(Carbon::createFromFormat('d/m/Y', $dataScadentei));
 
         return $invoice->stream();
 

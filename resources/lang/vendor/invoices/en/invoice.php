@@ -17,7 +17,7 @@ return [
     'vat'                    => 'VAT code',
     'phone'                  => 'Phone',
     'description'            => 'Descriere',
-    'units'                  => 'Units',
+    'units'                  => 'U.M.',
     'quantity'               => 'Cantitate',
     'price'                  => 'Pret',
     'discount'               => 'Discount',

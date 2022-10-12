@@ -62,10 +62,11 @@ class FacturaController extends Controller
 
         for($i = 0; $i < $len; $i++){
             $dateProdus = DateProdus::find($request->orderProducts[$i]['product_id']);
+            $quantity = $request->orderProducts[$i]['quantity'];
             if($dateProdus->tva)
-                $items[$i] = (new InvoiceItem())->title($dateProdus->nume)->pricePerUnit($dateProdus->pret)->quantity((float)$dateProdus->um)->taxByPercent($dateProdus->cota_tva);
+                $items[$i] = (new InvoiceItem())->title($dateProdus->nume)->pricePerUnit($dateProdus->pret)->units($dateProdus->um)->quantity((float)$quantity)->taxByPercent($dateProdus->cota_tva);
             else
-                $items[$i] = (new InvoiceItem())->title($dateProdus->nume)->pricePerUnit($dateProdus->pret)->quantity((float)$dateProdus->um);
+                $items[$i] = (new InvoiceItem())->title($dateProdus->nume)->pricePerUnit($dateProdus->pret)->units($dateProdus->um)->quantity((float)$quantity);
         }
 
         $invoice = Invoice::make()

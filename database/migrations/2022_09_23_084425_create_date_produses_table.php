@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('nume');
-            $table->integer('um');
+            $table->string('um');
             $table->integer('pret');
             $table->string('moneda');
             $table->integer('cota_tva');

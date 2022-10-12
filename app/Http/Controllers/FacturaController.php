@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\ContBancar;
 use App\Models\DateClient;
 use App\Models\DateProdus;
@@ -30,9 +31,10 @@ class FacturaController extends Controller
 
     public function generate(Request $request)
     {
-
         $user = Auth::user();
         $dateClient = DateClient::find($request->client);
+        $dataEmiterii = $request->dataEmiterii;
+        $dataScadentei = $request->dataScadentei;
 
         $client = new Party([
             'name' => $user->dateFirma->denumire,
@@ -62,16 +64,21 @@ class FacturaController extends Controller
 
         for($i = 0; $i < $len; $i++){
             $dateProdus = DateProdus::find($request->orderProducts[$i]['product_id']);
-            if($dateProdus->tva)
-                $items[$i] = (new InvoiceItem())->title($dateProdus->nume)->pricePerUnit($dateProdus->pret)->quantity((float)$dateProdus->um)->taxByPercent($dateProdus->cota_tva);
+            $quantity = $request->orderProducts[$i]['quantity'];
+            if(!$dateProdus->tva)
+                $items[$i] = (new InvoiceItem())->title($dateProdus->nume)->pricePerUnit($dateProdus->pret)->units($dateProdus->um)->quantity((float)$quantity)->taxByPercent($dateProdus->cota_tva);
             else
-                $items[$i] = (new InvoiceItem())->title($dateProdus->nume)->pricePerUnit($dateProdus->pret)->quantity((float)$dateProdus->um);
+                $items[$i] = (new InvoiceItem())->title($dateProdus->nume)->pricePerUnit($dateProdus->pret)->units($dateProdus->um)->quantity((float)$quantity);
         }
+
+        // dd($request);
 
         $invoice = Invoice::make()
             ->seller($client)
             ->buyer($customer)
-            ->addItems($items);
+            ->addItems($items)
+            ->date(Carbon::createFromFormat('d/m/Y', $dataEmiterii))
+            ->dueDate(Carbon::createFromFormat('d/m/Y', $dataScadentei));
 
         return $invoice->stream();
 

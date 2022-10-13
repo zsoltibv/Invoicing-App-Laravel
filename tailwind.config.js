@@ -5,11 +5,14 @@ module.exports = {
             sm: "640px",
             md: "768px",
             lg: "1024px",
-            xl: "1350px",
+            xl: "1280px",
         },
         extend: {
             fontFamily: {
                 body: ["Inter", "sans-serif"],
+            },
+            screens: {
+                "2-xl": "1350px",
             },
         },
     },
@@ -18,9 +21,7 @@ module.exports = {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
-        "./node_modules/flowbite/**/*.js"
+        "./node_modules/flowbite/**/*.js",
     ],
-    plugins: [
-      require('flowbite/plugin')
-    ],
+    plugins: [require("flowbite/plugin")],
 };

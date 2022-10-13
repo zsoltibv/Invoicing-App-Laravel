@@ -1,26 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ['class', '[data-mode="dark"]'],
-  content: [
-    "./resources/**/*.blade.php",
-    "./resources/**/*.js",
-    "./resources/**/*.vue",
-  ],
-  theme: {
-    extend: {
-      fontFamily: {
-        'body': ['Inter', 'sans-serif'],
-      },
-      screens: {
-        '2-xl': '1400px',
-      }
+    theme: {
+        screens: {
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            xl: "1350px",
+        },
+        extend: {
+            fontFamily: {
+                body: ["Inter", "sans-serif"],
+            },
+        },
     },
-    screens: {
-      sm: '480px',
-      md: '768px',
-      lg: '976px',
-      xl: '1240px',
-    },
-  },
-  plugins: [],
-}
+    darkMode: ["class", '[data-mode="dark"]'],
+    content: [
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
+        "./node_modules/flowbite/**/*.js"
+    ],
+    plugins: [
+      require('flowbite/plugin')
+    ],
+};

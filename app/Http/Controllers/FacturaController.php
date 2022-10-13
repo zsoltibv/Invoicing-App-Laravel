@@ -82,7 +82,7 @@ class FacturaController extends Controller
 
         return $invoice->stream();
 
-        //return $invoice->render()->toHtml();
+        // return $invoice->render()->toHtml();
 
         // return redirect()->route('factura.show', $user->id);
     }

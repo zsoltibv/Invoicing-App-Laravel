@@ -6,18 +6,23 @@ use Carbon\Carbon;
 use App\Models\ContBancar;
 use App\Models\DateClient;
 use App\Models\DateProdus;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use LaravelDaily\Invoices\Invoice;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use LaravelDaily\Invoices\Classes\Buyer;
 use LaravelDaily\Invoices\Classes\Party;
 use LaravelDaily\Invoices\Classes\InvoiceItem;
-use Illuminate\Support\Str;
 
 class FacturaController extends Controller
 {
+    public $preview = [];
+    public $invoice = [];
+
     public function index()
     {
         $user = Auth::user();
@@ -25,12 +30,11 @@ class FacturaController extends Controller
         return view('pages.factura', compact('user'));
     }
 
-    public function show(Request $request)
+    public function show($id)
     {
         $user = Auth::user();
-        $preview = Session::get('preview');
 
-        return view('pages.factura-show', compact('user', 'preview'));
+        return view('pages.factura-show', compact('user'));
     }
 
     public function preview(Request $request)
@@ -39,6 +43,15 @@ class FacturaController extends Controller
         $preview = Session::get('preview');
 
         return view('pages.factura-preview', compact('user', 'preview'));
+    }
+
+    public function download(Request $request){
+        $file = basename(Crypt::decrypt($request->url));  
+        return Storage::download($file);
+    }
+
+    public function store(Request $request){
+        dd($request);
     }
 
     public function generate(Request $request)
@@ -84,6 +97,8 @@ class FacturaController extends Controller
         }
 
         // dd($request);
+        $clientNameFormated = preg_replace('/\s+/', '_', $client->name);
+        $customerNameFormated = preg_replace('/\s+/', '_', $customer->name); 
 
         $invoice = Invoice::make()
             ->seller($client)
@@ -91,7 +106,10 @@ class FacturaController extends Controller
             ->addItems($items)
             ->date(Carbon::createFromFormat('d/m/Y', $dataEmiterii))
             ->dueDate(Carbon::createFromFormat('d/m/Y', $dataScadentei))
-            ->filename($client->name . ' ' . $customer->name);
+            ->filename($clientNameFormated . '-' . $customerNameFormated)
+            ->save('public');
+
+        // dd($client->name.' '.$customer->name);
 
         // return $invoice->render()->toHtml();
         // return redirect()->route('factura.show', $user->id);
@@ -100,6 +118,9 @@ class FacturaController extends Controller
         $preview = Str::of($invoice->render()->toHtml())->toHtmlString();
         
         $request->session()->put('preview', $preview);
-        return view('pages.factura-show', compact('user', 'preview'));
+        
+        // return redirect()->route('factura.show', $user->id);
+
+        return view('pages.factura-show', compact('user', 'preview', 'invoice', 'dataEmiterii', 'dataScadentei', 'dateClient'));
     }
 }

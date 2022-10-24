@@ -15,6 +15,5 @@
             <iframe src="{{route('factura.preview', $user->id, $preview)}}" frameborder="0" class="w-full h-screen border"></iframe>
         </div>
     </div>
-</div>
 
 @endsection

@@ -41,6 +41,7 @@ class FacturaController extends Controller
     {
         $user = Auth::user();
         $preview = Session::get('preview');
+        Session::forget('preview');
 
         return view('pages.factura-preview', compact('user', 'preview'));
     }

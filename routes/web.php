@@ -53,6 +53,5 @@ Route::post('/account/factura/{id}', [FacturaController::class, 'generate'])->na
 Route::get('/account/factura/show/{id}', [FacturaController::class, 'show'])->name('factura.show');
 Route::get('/account/factura/preview/{id}', [FacturaController::class, 'preview'])->name('factura.preview');
 Route::post('/account/factura/download/{url}', [FacturaController::class, 'download'])->name('factura.download');
-Route::post('/account/factura/store/{id}', [FacturaController::class, 'store'])->name('factura.store');
 
 Auth::routes();

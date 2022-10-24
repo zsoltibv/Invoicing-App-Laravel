@@ -9,9 +9,12 @@ use App\Models\DateProdus;
 use Illuminate\Http\Request;
 use LaravelDaily\Invoices\Invoice;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Session;
 use LaravelDaily\Invoices\Classes\Buyer;
 use LaravelDaily\Invoices\Classes\Party;
 use LaravelDaily\Invoices\Classes\InvoiceItem;
+use Illuminate\Support\Str;
 
 class FacturaController extends Controller
 {
@@ -22,11 +25,20 @@ class FacturaController extends Controller
         return view('pages.factura', compact('user'));
     }
 
-    public function show($preview)
+    public function show(Request $request)
     {
         $user = Auth::user();
+        $preview = Session::get('preview');
 
         return view('pages.factura-show', compact('user', 'preview'));
+    }
+
+    public function preview(Request $request)
+    {
+        $user = Auth::user();
+        $preview = Session::get('preview');
+
+        return view('pages.factura-preview', compact('user', 'preview'));
     }
 
     public function generate(Request $request)
@@ -78,12 +90,16 @@ class FacturaController extends Controller
             ->buyer($customer)
             ->addItems($items)
             ->date(Carbon::createFromFormat('d/m/Y', $dataEmiterii))
-            ->dueDate(Carbon::createFromFormat('d/m/Y', $dataScadentei));
-
-        return $invoice->stream();
+            ->dueDate(Carbon::createFromFormat('d/m/Y', $dataScadentei))
+            ->filename($client->name . ' ' . $customer->name);
 
         // return $invoice->render()->toHtml();
-
         // return redirect()->route('factura.show', $user->id);
+        // return redirect()->route('factura.show', $user->id, $preview); -> jobb lenne
+
+        $preview = Str::of($invoice->render()->toHtml())->toHtmlString();
+        
+        $request->session()->put('preview', $preview);
+        return view('pages.factura-show', compact('user', 'preview'));
     }
 }

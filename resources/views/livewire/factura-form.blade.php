@@ -131,8 +131,9 @@
                 <span class="">Adauga&nbsp;Produs</span>
             </button>
             <button type="submit" class="btn btn-primary text-white">
-                <div class="rounded-md h-10 px-12 text-sm bg-blue-700 flex items-center justify-center">
-                    {{ __('Emite') }}
+                <div class="rounded-md h-10 px-6 text-sm bg-blue-700 flex items-center justify-center">
+                    {{ __('Previzualizare Factura') }}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="ml-2 fill-white"><path fill="none" d="M0 0h24v24H0z"/><path d="m16.172 11-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"/></svg>
                 </div>
             </button>
         </div>

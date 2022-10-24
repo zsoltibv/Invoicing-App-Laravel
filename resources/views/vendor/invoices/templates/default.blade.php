@@ -203,7 +203,7 @@
 
                         @foreach($invoice->seller->custom_fields as $key => $value)
                             <p class="seller-custom-field">
-                                {{ ucfirst($key) }}: {{ $value }}
+                                {{ ucfirst($key) }} : {{ $value }}
                             </p>
                         @endforeach
                     </td>

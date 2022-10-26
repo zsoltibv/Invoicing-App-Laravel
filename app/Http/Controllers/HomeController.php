@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DateFactura;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $factura = DateFactura::all();
 
-        return view('pages.dashboard', compact('user'));
+        return view('pages.dashboard', compact('user', 'factura'));
     }
 }

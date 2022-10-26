@@ -8,6 +8,7 @@ use App\Http\Controllers\DateFirmaController;
 use App\Http\Controllers\DateBancareController;
 use App\Http\Controllers\DateClientiController;
 use App\Http\Controllers\DateProduseController;
+use App\Http\Controllers\ToateFacturileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +58,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/account/factura/preview/{url}', [FacturaController::class, 'preview'])->name('factura.preview');
     Route::post('/account/factura/download/{url}', [FacturaController::class, 'download'])->name('factura.download');
     Route::post('/account/factura/store/{url}', [FacturaController::class, 'store'])->name('factura.store');
+
+    Route::get('/account/factura/toate', [ToateFacturileController::class, 'index'])->name('factura.all');
+    Route::delete('/account/factura/toate/{id}', [FacturaController::class, 'destroy'])->name('factura.destroy');
 });

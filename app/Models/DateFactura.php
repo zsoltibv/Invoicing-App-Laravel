@@ -29,6 +29,10 @@ class DateFactura extends Model
         return $this->belongsTo(Client::class);
     }
 
+    public function dateClient(){
+        return $this->hasOne(DateClient::class, 'id');
+    }
+
     public function storeDateFactura($data){
         DateFactura::create([
             'user_id' => $data['user_id'],
@@ -40,5 +44,9 @@ class DateFactura extends Model
             'data_emiterii' => $data['data_emiterii'],
             'data_scadentei' => $data['data_scadentei'],
         ]);
+    }
+
+    public function deleteDateFactura($id){
+        return DateFactura::find($id)->delete();
     }
 }

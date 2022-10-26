@@ -54,6 +54,13 @@ class FacturaController extends Controller
         return Storage::download($file);
     }
 
+    public function destroy($id)
+    {
+        (new DateFactura)->deleteDateFactura($id);
+
+        return redirect()->route('factura.all')->with('message', 'Factura deleted successfully');
+    }
+
     public function store(Request $request)
     {
         $url = Session::get('url');
@@ -123,7 +130,12 @@ class FacturaController extends Controller
         // dd($request);
         $clientNameFormated = preg_replace('/\s+/', '_', $client->name);
         $customerNameFormated = preg_replace('/\s+/', '_', $customer->name);
-        $serieFactura = Carbon::now()->year;
+        if (DateFactura::all()->count() == 0) {
+            $num_padded = sprintf("%04d", DateFactura::all()->count() + 1);
+        } else {
+            $num_padded = sprintf("%04d", DateFactura::all()->count());
+        }
+        $serieFactura = Carbon::now()->year . '.' . $num_padded;
         $filename = 'Factura' . $serieFactura . '-' . $clientNameFormated . '-' . $customerNameFormated;
 
         $invoice = Invoice::make()
@@ -133,7 +145,7 @@ class FacturaController extends Controller
             ->date(Carbon::createFromFormat('d/m/Y', $dataEmiterii))
             ->dueDate(Carbon::createFromFormat('d/m/Y', $dataScadentei))
             ->filename($filename)
-            ->serialNumberFormat($serieFactura . '/0001')
+            ->serialNumberFormat($serieFactura)
             ->save('public');
 
         // dd($client->name.' '.$customer->name);

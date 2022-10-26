@@ -27,6 +27,10 @@ class DateClient extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function dateFactura(){
+        return $this->hasMany(DateFactura::class, 'client_id');
+    }
+
     public function findDateClientById($id){
         return DateClient::find($id);
     }

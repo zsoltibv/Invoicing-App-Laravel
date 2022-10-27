@@ -52,7 +52,7 @@
                     </div>
                     <div class="info">
                         <h2 class="text-md font-semibold uppercase mt-6">Facturi</h2>
-                        <p class="text-4xl font-semibold mt-3 text-black">{{$factura->count()}}</p>
+                        <p class="text-4xl font-semibold mt-3 text-black">{{$user->dateFactura->count()}}</p>
                     </div>
                 </div>
             </a>
@@ -109,7 +109,7 @@
                     <div class="overflow-x-auto relative mt-6 px-2 md:h-64">
                         <table class="w-full text-sm text-left">
                             <tbody>
-                                @foreach($user->dateFactura as $key=>$factura)
+                                @foreach($facturi as $key=>$factura)
 
                                 <tr class="">
                                     <th scope="row" class="font-medium whitespace-nowrap">
@@ -192,7 +192,7 @@
                     <div class="overflow-x-auto relative mt-6 px-2 md:h-64">
                         <table class="w-full text-sm text-left">
                             <tbody>
-                                @foreach($user->dateProdus as $key=>$produs)
+                                @foreach($produse as $key=>$produs)
 
                                 <tr class="">
                                     <th scope="row" class="font-medium whitespace-nowrap">

@@ -24,6 +24,9 @@
                             Serie Factura
                         </th>
                         <th scope="col" class="py-3 px-6">
+                            Client
+                        </th>
+                        <th scope="col" class="py-3 px-6">
                             Pret
                         </th>
                         <th scope="col" class="py-3 px-6">
@@ -50,6 +53,9 @@
                             <a href="{{route('factura.show', $factura->url)}}" class="py-4 px-6 font-medium hover:underline">
                                 {{$factura->serie}}
                             </a>
+                        </td>
+                        <td class="py-4 px-6 font-semibold">
+                            {{-- {{$factura_db->dateClient->cui}}  --}} nume
                         </td>
                         <td class="py-4 px-6 font-semibold text-emerald-600">
                             {{$factura->pret}}

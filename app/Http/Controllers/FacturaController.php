@@ -40,12 +40,17 @@ class FacturaController extends Controller
         return view('pages.factura-show-final', compact('user', 'factura', 'dateClient'));
     }
 
-    public function preview(Request $request)
+    public function preview($url)
     {
+        $factura = DateFactura::where('url', Crypt::decrypt($url))->get()->first();
         $user = Auth::user();
-        $preview = Crypt::decrypt(Session::get('preview'));
-
-        return view('pages.factura-preview', compact('user', 'preview'));
+        if($factura == null){
+            $preview = Crypt::decrypt(Session::get('preview'));
+            return view('pages.factura-preview', compact('user', 'preview'));
+        }else{
+            $preview = Crypt::decrypt($factura->preview);
+            return view('pages.factura-preview', compact('user', 'preview'));
+        }
     }
 
     public function download($url)

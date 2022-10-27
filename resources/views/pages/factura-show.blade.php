@@ -81,7 +81,7 @@
                     </button>
                 </a>
             </div>
-            <iframe src="{{route('factura.preview', Crypt::encrypt($invoice->url()))}}"
+        <iframe src="{{route('factura.preview', Crypt::encrypt($invoice->url()))}}"
                 class="w-full h-screen border rounded-md shadow-md"></iframe>
         </div>
     </div>

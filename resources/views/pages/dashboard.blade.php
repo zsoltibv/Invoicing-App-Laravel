@@ -92,16 +92,21 @@
         </div>
         <div class="details grid md:grid-cols-2 gap-6 py-6">
             <div class="recent-activity border border-gray-300 rounded-lg p-6 overflow-x-auto">
-                <h3 class="font-semibold">Facturi Recente</h3>
+                <div class="heading flex justify-between items-center">
+                    <h3 class="font-semibold">Facturi Recente</h3>
+                    <a href="{{route('factura.all')}}" class="hover:underline text-blue-700 font-medium text-sm">
+                        Vezi toate
+                    </a>
+                </div>
                 <div class="content">
                     @if($user->dateFactura->count() == 0)
                     <div class="empty flex flex-col justify-center items-center h-64">
                         <h2 class="text-2xl font-medium mb-3">Nici-o activitate inca.</h2>
                         <p>Creaza o factura.</p>
-                        <a href="{{route('account')}}" class="pt-7">
+                        <a href="{{route('account.factura')}}" class="pt-7">
                             <button
-                                class="cursor-not-allowed h-10 px-8 border border-gray-300 text-black font-medium text-sm rounded-md flex items-center">
-                                <p>Vezi Facturi</p>
+                                class="h-10 px-8 border border-gray-300 text-black font-medium text-sm rounded-md flex items-center">
+                                <p>Emite factura</p>
                             </button>
                         </a>
                     </div>
@@ -175,7 +180,12 @@
                 </div>
             </div>
             <div class="recent-products border border-gray-300 rounded-lg p-6 overflow-x-auto">
-                <h3 class="font-semibold">Produse Recente</h3>
+                <div class="heading flex justify-between items-center">
+                    <h3 class="font-semibold">Produse Recente</h3>
+                    <a href="{{route('account.date-produse')}}" class="hover:underline text-blue-700 font-medium text-sm">
+                        Vezi toate
+                    </a>
+                </div>
                 <div class="content">
                     @if($user->dateProdus->count() == 0)
                     <div class="empty flex flex-col justify-center items-center h-64">

@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DateFactura extends Model
 {
@@ -25,10 +27,6 @@ class DateFactura extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function client(){
-        return $this->belongsTo(Client::class);
-    }
-
     public function dateClient(){
         return $this->hasOne(DateClient::class, 'id');
     }
@@ -47,6 +45,11 @@ class DateFactura extends Model
     }
 
     public function deleteDateFactura($id){
-        return DateFactura::find($id)->delete();
+        $dateFactura =  DateFactura::find($id);
+
+        $file = basename(Crypt::decrypt($dateFactura->url));
+        Storage::delete($file);
+
+        return $dateFactura->delete();
     }
 }

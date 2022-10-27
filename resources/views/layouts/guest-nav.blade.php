@@ -17,14 +17,21 @@
         <div class="hidden w-full md:block md:w-auto" id="navbar-default" id="mobile-menu-2">
             <ul
                 class="font-body flex flex-col md:items-center text-white text-sm md:text-md mt-4 rounded-lg md:flex-row md:space-x-10 md:mt-0 md:font-medium md:border-0">
-                <li>
-                    <a href="{{route('login')}}"
-                        class="px-3 flex justify-between items-center py-2 w-full font-medium text-gray-700 rounded md:w-auto hover:bg-gray-100 md:border-0 dark:hover:bg-gray-100 md:dark:hover:bg-transparent dark:border-gray-700">Login</a>
-                </li>
-                <li>
-                    <a href="{{route('register')}}"
-                        class="px-3 flex justify-between items-center py-2 w-full font-medium text-gray-700 rounded md:w-auto hover:bg-gray-100 md:border-0 dark:hover:bg-gray-100 md:dark:hover:bg-transparent dark:border-gray-700">Register</a>
-                </li>
+                @guest
+                    <li>
+                        <a href="{{route('login')}}"
+                            class="px-3 flex justify-between items-center py-2 w-full font-medium text-gray-700 rounded md:w-auto hover:bg-gray-100 md:border-0 dark:hover:bg-gray-100 md:dark:hover:bg-transparent dark:border-gray-700">Login</a>
+                    </li>
+                    <li>
+                        <a href="{{route('register')}}"
+                            class="px-3 flex justify-between items-center py-2 w-full font-medium text-gray-700 rounded md:w-auto hover:bg-gray-100 md:border-0 dark:hover:bg-gray-100 md:dark:hover:bg-transparent dark:border-gray-700">Register</a>
+                    </li>
+                @else
+                    <li>
+                        <a href="{{route('account')}}"
+                            class="px-3 flex justify-between items-center py-2 w-full font-medium text-gray-700 rounded md:w-auto hover:bg-gray-100 md:border-0 dark:hover:bg-gray-100 md:dark:hover:bg-transparent dark:border-gray-700">Contul Meu</a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

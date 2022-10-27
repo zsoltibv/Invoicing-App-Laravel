@@ -130,11 +130,7 @@ class FacturaController extends Controller
         // dd($request);
         $clientNameFormated = preg_replace('/\s+/', '_', $client->name);
         $customerNameFormated = preg_replace('/\s+/', '_', $customer->name);
-        if (DateFactura::all()->count() == 0) {
-            $num_padded = sprintf("%04d", DateFactura::all()->count() + 1);
-        } else {
-            $num_padded = sprintf("%04d", DateFactura::all()->count());
-        }
+        $num_padded = sprintf("%04d", DateFactura::all()->count() + 1);
         $serieFactura = Carbon::now()->year . '.' . $num_padded;
         $filename = 'Factura' . $serieFactura . '-' . $clientNameFormated . '-' . $customerNameFormated;
 

@@ -8,8 +8,8 @@ return [
     */
 
     'invoice'                => 'Factura',
-    'serial'                 => 'Nr. Serie',
-    'date'                   => 'Data Emiterii',
+    'serial'                 => 'Nr. serie',
+    'date'                   => 'Data emiterii',
     'seller'                 => 'Furnizor',
     'buyer'                  => 'Client',
     'address'                => 'Address',
@@ -28,7 +28,7 @@ return [
     'total_taxes'            => 'Total TVA',
     'tax_rate'               => 'Cota TVA',
     'total_amount'           => 'Total plata',
-    'pay_until'              => 'Termen plata',
+    'pay_until'              => 'Data scadentei',
     'amount_in_words'        => 'Pret in cuvinte',
     'amount_in_words_format' => '%s %s and %s %s',
     'notes'                  => 'Notes',

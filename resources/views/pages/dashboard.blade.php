@@ -68,8 +68,10 @@
                     </div>
                     <div class="info">
                         <h2 class="text-md font-semibold uppercase mt-6">Facturat</h2>
-                        <p class="text-4xl font-semibold mt-3 text-black relative">4678 <span
-                                class="ml-1 mt-1 font-medium text-sm absolute top-0">RON</span></p>
+                        <p class="text-4xl font-semibold mt-3 text-black relative">
+                            {{$statistici->suma_facturata}}
+                            <span class="ml-1 mt-1 font-medium text-sm absolute top-0">RON</span>
+                        </p>
                     </div>
                 </div>
             </a>
@@ -84,8 +86,10 @@
                     </div>
                     <div class="info">
                         <h2 class="text-md font-semibold uppercase mt-6">INCASAT</h2>
-                        <p class="text-4xl font-semibold mt-3 text-black relative">3560 <span
-                                class="ml-1 mt-1 font-medium text-sm absolute top-0">RON</span></p>
+                        <p class="text-4xl font-semibold mt-3 text-black relative">
+                            {{$statistici->suma_incasata}}
+                            <span class="ml-1 mt-1 font-medium text-sm absolute top-0">RON</span>
+                        </p>
                     </div>
                 </div>
             </a>
@@ -135,7 +139,7 @@
                                         </a>
                                     </td>
                                     <td class="py-4 px-4 text-emerald-600 font-semibold">
-                                        {{$factura->pret}}
+                                        {{$factura->pret}} lei
                                     </td>
                                     <td class="py-4 px-4 uppercase font-medium">
                                         {{$factura->moneda}}
@@ -182,7 +186,8 @@
             <div class="recent-products border border-gray-300 rounded-lg p-6 overflow-x-auto">
                 <div class="heading flex justify-between items-center">
                     <h3 class="font-semibold">Produse Recente</h3>
-                    <a href="{{route('account.date-produse')}}" class="hover:underline text-blue-700 font-medium text-sm">
+                    <a href="{{route('account.date-produse')}}"
+                        class="hover:underline text-blue-700 font-medium text-sm">
                         Vezi toate
                     </a>
                 </div>

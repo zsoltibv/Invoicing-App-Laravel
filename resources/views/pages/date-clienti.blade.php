@@ -35,7 +35,7 @@
             </div>
         </form>
         @if(Session::has('message'))
-        <div class="text-black text-md mt-3">{{Session::get('message')}}</div>
+            <div class="text-black text-md mt-3">{{Session::get('message')}}</div>
         @endif
 
         {{-- Table --}}

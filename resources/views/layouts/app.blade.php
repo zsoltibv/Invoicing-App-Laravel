@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Facturila</title>
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
     @livewireStyles
 </head>
 <body>
-    <div class="app">
+    <div id="app">
         @yield('content')
     </div>
     {{-- Flowbite Script --}}

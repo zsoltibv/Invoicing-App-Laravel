@@ -54,11 +54,11 @@
                                 {{$factura->serie}}
                             </a>
                         </td>
-                        <td class="py-4 px-6 font-semibold">
-                            {{-- {{$factura_db->dateClient->cui}}  --}} nume
+                        <td class="py-4 px-6 font-medium">
+                            {{App\Models\DateClient::find($factura->client_id)->denumire}}
                         </td>
                         <td class="py-4 px-6 font-semibold text-emerald-600">
-                            {{$factura->pret}}
+                            {{$factura->pret}} lei
                         </td>
                         <td class="py-4 px-6 font-medium">
                             {{$factura->data_emiterii}}

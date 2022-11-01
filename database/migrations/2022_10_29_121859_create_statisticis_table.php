@@ -13,17 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('date_facturas', function (Blueprint $table) {
+        Schema::create('statisticis', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('client_id');
-            $table->string('serie');
-            $table->float('pret');
-            $table->longText('url');
-            $table->longText('preview');
-            $table->string('data_emiterii');
-            $table->string('data_scadentei');
-            $table->boolean('achitata')->default(false);
+            $table->float('suma_facturata')->nullable();
+            $table->float('suma_incasata')->nullable();
             $table->timestamps();
         });
     }
@@ -35,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('date_facturas');
+        Schema::dropIfExists('statisticis');
     }
 };

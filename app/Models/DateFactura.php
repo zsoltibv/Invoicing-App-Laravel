@@ -27,10 +27,6 @@ class DateFactura extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function dateClient(){
-        return $this->hasOne(DateClient::class, 'id');
-    }
-
     public function storeDateFactura($data){
         DateFactura::create([
             'user_id' => $data['user_id'],
@@ -46,6 +42,9 @@ class DateFactura extends Model
 
     public function deleteDateFactura($id){
         $dateFactura =  DateFactura::find($id);
+
+        //stergere din statistica
+        (new Statistici)->updateSumaFacturata($dateFactura->pret, $dateFactura->user_id, false);
 
         $file = basename(Crypt::decrypt($dateFactura->url));
         Storage::delete($file);

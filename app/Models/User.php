@@ -63,6 +63,10 @@ class User extends Authenticatable
         return $this->hasMany(DateFactura::class, 'user_id');
     }
 
+    public function dateStatistici(){
+        return $this->hasOne(Statistici::class, 'user_id');
+    }
+
     public function getUserById($id)
     {
         return User::find($id);

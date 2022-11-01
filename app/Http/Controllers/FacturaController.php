@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\ContBancar;
 use App\Models\DateClient;
 use App\Models\DateProdus;
+use App\Models\Statistici;
 use App\Models\DateFactura;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -44,10 +45,10 @@ class FacturaController extends Controller
     {
         $factura = DateFactura::where('url', Crypt::decrypt($url))->get()->first();
         $user = Auth::user();
-        if($factura == null){
+        if ($factura == null) {
             $preview = Crypt::decrypt(Session::get('preview'));
             return view('pages.factura-preview', compact('user', 'preview'));
-        }else{
+        } else {
             $preview = Crypt::decrypt($factura->preview);
             return view('pages.factura-preview', compact('user', 'preview'));
         }
@@ -62,7 +63,7 @@ class FacturaController extends Controller
     public function destroy($id)
     {
         (new DateFactura)->deleteDateFactura($id);
-
+        
         return redirect()->route('factura.all')->with('message', 'Factura deleted successfully');
     }
 
@@ -72,13 +73,14 @@ class FacturaController extends Controller
         $data['user_id'] = Auth::user()->id;
         $data['client_id'] = Session::get('client_id');
         $data['serie'] =  Session::get('serie');
-        $data['pret'] =  Session::get('suma_totala');
+        $data['pret'] =  floatval(preg_replace("/[^-0-9\.]/","",Session::get('suma_totala')));
         $data['url'] =  Session::get('url');
         $data['preview'] =  Session::get('preview');
         $data['data_emiterii'] =  Session::get('dataEmiterii');
         $data['data_scadentei'] =  Session::get('dataScadentei');
 
         (new DateFactura)->storeDateFactura($data);
+        (new Statistici)->updateSumaFacturata($data['pret'], $data['user_id'], true);
 
         Session::forget('client_id');
         Session::forget('serie');

@@ -1,7 +1,8 @@
 <p align="center">
-  <img src="your_relative_path_here" width="350" title="hover text">
+  <img src="your_relative_path_here" width="400">
   <img src="https://github.com/zsoltibv/laravel-invoicing-app/blob/main/public/img/logo.png" width="350" alt="accessibility text">
 </p>
+
 ## About the project
 
 Laravel invoicing app made using Laravel, Livewire, TailwindCSS and Flowbite components.

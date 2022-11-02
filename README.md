@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/zsoltibv/laravel-invoicing-app/blob/main/public/img/hero.png" width="400" alt="accessibility text">
+  <img src="https://github.com/zsoltibv/laravel-invoicing-app/blob/main/public/img/hero.png" alt="accessibility text">
 </p>
 
 ## About the project

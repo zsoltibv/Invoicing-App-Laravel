@@ -27,10 +27,9 @@ Invoicing app made with Laravel PHP, Livewire, TailwindCSS and Flowbite componen
 1. `php artisan storage:link`
 1. `php artisan key:generate`
 1. `php artisan serve`
-1. `npm run dev`
 1. Visit `localhost:8000` in your browser
 
 ## Used Packages
 
-<a href="https://github.com/andalisolutions/laravel-anaf">andalisolutions/laravel-anaf</a>
+<a href="https://github.com/andalisolutions/laravel-anaf">andalisolutions/laravel-anaf</a><br>
 <a href="https://github.com/LaravelDaily/laravel-invoices">LaravelDaily/laravel-invoices</a>

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('date_firmas', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->integer('cui');
             $table->string('denumire');
             $table->string('judet');
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('reg_com');
             $table->boolean('tva');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

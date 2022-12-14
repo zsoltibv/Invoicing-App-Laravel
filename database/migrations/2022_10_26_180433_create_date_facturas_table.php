@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('date_facturas', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('client_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('client_id');
             $table->string('serie');
             $table->float('pret');
             $table->longText('url');
@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('data_scadentei');
             $table->boolean('achitata')->default(false);
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('client_id')->references('id')->on('date_clients');
         });
     }
 

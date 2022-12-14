@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('date_produses', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('nume');
             $table->string('um');
             $table->integer('pret');
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('cota_tva');
             $table->boolean('tva');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

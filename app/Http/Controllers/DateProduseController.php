@@ -36,7 +36,7 @@ class DateProduseController extends Controller
         return $this->validate($request, [
             'nume' => 'required|string',
             'um' => 'required|string',
-            'pret' => 'required|integer',
+            'pret' => 'required|numeric',
             'moneda' => 'required|string',
             'cota_tva' => 'required|integer',
             'tva' => 'required',

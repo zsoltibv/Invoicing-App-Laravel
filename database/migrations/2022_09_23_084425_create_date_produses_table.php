@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('nume');
             $table->string('um');
-            $table->integer('pret');
+            $table->float('pret');
             $table->string('moneda');
             $table->integer('cota_tva');
             $table->boolean('tva');

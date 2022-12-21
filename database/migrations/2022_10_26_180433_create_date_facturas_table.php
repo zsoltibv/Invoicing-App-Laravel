@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('data_scadentei');
             $table->boolean('achitata')->default(false);
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('client_id')->references('id')->on('date_clients');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('client_id')->references('id')->on('date_clients')->onDelete('cascade');
         });
     }
 

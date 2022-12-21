@@ -19,7 +19,7 @@ return new class extends Migration
             $table->float('suma_facturata')->nullable();
             $table->float('suma_incasata')->nullable();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

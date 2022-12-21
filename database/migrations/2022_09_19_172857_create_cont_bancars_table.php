@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('moneda');
             $table->boolean('folosit')->default(true);
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

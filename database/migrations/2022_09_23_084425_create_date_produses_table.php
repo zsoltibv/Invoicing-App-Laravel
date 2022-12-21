@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('cota_tva');
             $table->boolean('tva');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
